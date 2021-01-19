@@ -24,17 +24,17 @@
         <main>
             <div class="stats">
 
-                <label for="number">Dinsatence Ran</label>
+                <div class="info"><label for="number">Dinsatence Ran</label>
+                
+                <input id="distance" type="number"></div>
 
-                <input id="distance" type="number">
+<div class="info">
+<label for="number">Duration</label>
 
-
-                <label for="number">Duration</label>
-
-                <input id="time" type="number">
+<input id="time" type="number"></div>
 
                 <button onclick="main()" id="myBtn"> Go</button>
-                
+
                 <h4 id='fast_title'></h4>
 
                 <p id="fast_interval"></p>
@@ -44,23 +44,6 @@
                 <p id="slow"></p>
                 <p id="slow_pace"></p>
             </div>
-
-            <script>
-                // Get the inp=     document.getElementById(    "myInput");
-
-                // Execute a function when the user     releases a key on the keyboard
-                input.addEventListener("keyup", function (event) {
-                    // Number 13 is the "En ter" key on        he keyboard
-                    if (event.keyCode === 13) {
-                        /        Cancel the default action, if            ded
-                        event.preventDefault();
-                        //ger the button element wiclick
-                        document.getElementById("myBtn")ck();
-                    }
-                });
-
-
-            </script>
 
             <script>
 
@@ -127,7 +110,6 @@
                     document.getElementById("Slow_title").innerHTML = "Slow Interval";
                     document.getElementById("slow").innerHTML = "run a quarter mile in less than " + least_rest + " but no more than " + most_rest + "(min:sec)";
                     document.getElementById("slow_pace").innerHTML = "your pace should be between " + upper_pace + " and " + lower_pace + " (min/mi)";
-
                 }                
             </script>
 
