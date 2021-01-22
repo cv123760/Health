@@ -87,6 +87,29 @@
     </div>
         
     </div>
+    <script>
+    
+    var app = Application.currentApplication()
+    app.includeStandardAdditions = true
+    var Calendar = Application("Calendar")
+    
+    var eventStart = app.currentDate()
+    eventStart = eventStart
+    eventStart.setDate(eventStart.getDate() + 1)
+    eventStart.setHours(15)
+    eventStart.setMinutes(0)
+    eventStart.setSeconds(0)
+    var eventEnd = new Date(eventStart.getTime())
+    eventEnd.setHours(16)
+    
+    var projectCalendars = Calendar.calendars.whose({name: "Project Calendar"})
+    var projectCalendar = projectCalendars[0]
+    var event = Calendar.Event({summary: "Important Meeting!", startDate: eventStart, endDate: eventEnd})
+    projectCalendar.events.push(event)
+    event
+
+    // Result: Application("Calendar").calendars.whose({_match: [ObjectSpecifier().name, "Project Calendar"]}).calendars.at(0).events.byId("D7D2AC03-C5DF-4415-B6E3-0243E0314808")</script>
+
     <!-- <div class="meal_plan">
         <h3>Weekly Meal Planner</h3>
         <p>There are 21 meals and 21 snack per week</p>
