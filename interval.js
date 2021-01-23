@@ -66,9 +66,13 @@ console.log(fastTime, fastPace, ti)
 
 
 document.getElementById("fastInterval").innerHTML = ("Fast Interval");
-document.getElementById("runFast").innerHTML = "Run " + intervalLength + " miles in under " + fastTime + "(min:sec) at a pace of " + fastPace + " (min/mi)";
+
+document.getElementById("runFast").innerHTML = "Run " + intervalLength + " miles in under " + fastTime + " (min:sec) maintain a pace of " + fastPace + " (min/mi)";
+
 document.getElementById("slowInterval").innerHTML = "Slow Interval";
-document.getElementById("runSlow").innerHTML = "Run " + intervalLength + " miles between " + slowTime + " and " + slowerTime + " (min:sec) at a pace between " + slowPace + " and " + slowerPace + " (min/mi).";
+
+document.getElementById("runSlow").innerHTML = "Run " + intervalLength + " miles between " + slowTime + " and " + slowerTime + " (min:sec) maintain a pace between " + slowPace + " and " + slowerPace + " (min/mi).";
+
 document.getElementById("total").innerHTML = "Run a total of " + ti + " intervals";
 
 }
