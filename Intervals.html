@@ -25,17 +25,26 @@
 
 
             <div class="stats">
-
+                <h1>Interval Training</h1>
+                <h2>Find your interval speeds</h2>
                 <p>Run a minimum of 1.5 miles at a comfortable pace. Track your time. Determine your interval speeds by filling out the information below</p>
 
 
 
                 <form>
-                    Distance: <input id = "distance" type="text" > <br>
-                    Duration: <input id = "time" type="text" > <br>
+                    <label class="label" for="distance">Total Distance</label>
+                    <input id = "distance" type="text" >
+
+                    <label class="label" for="time">Time</label>
+                    <input id = "time" type="text" > 
+                    
                     <p>How long would you like your interval work out to be</p>
-                    Minutes:<input id="sessionDuration" type="text" ><br>
-                    Interval: <input id="intervalLength" type="text" > <br>
+
+                    <label class="label" for="sessionDuration">Workout Time in minutes:</label>
+                    <input id="sessionDuration" type="text" >
+
+                    <label class="label" for="intervalLength">number of Intervals: </label>
+                    <input id="intervalLength" type="text" > 
                     
 
                     <button onclick="main()" type = "button">Go</button>
