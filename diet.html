@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Diet</title>
     <link rel="stylesheet" href="stryle.css">
-    <link rel="js" href="running.js">
+    <link rel="js" href="diet.js">
 </head>
 <body>
 
@@ -17,6 +17,7 @@
             <nav>
                 <a href="diet.html">Diet</a>
                 <a href="Intervals.html">Exercice</a>
+                <a href="register.html">Register</a>
             </nav>
         </header>
     
@@ -87,279 +88,38 @@
             </div>
         </main>
     </div>
-        
+    <h1>Create your weekly meal Calendar</h1>
+    
+       
     </div>
-    <script>
-    
-    var app = Application.currentApplication()
-    app.includeStandardAdditions = true
-    var Calendar = Application("Calendar")
-    
-    var eventStart = app.currentDate()
-    eventStart = eventStart
-    eventStart.setDate(eventStart.getDate() + 1)
-    eventStart.setHours(15)
-    eventStart.setMinutes(0)
-    eventStart.setSeconds(0)
-    var eventEnd = new Date(eventStart.getTime())
-    eventEnd.setHours(16)
-    
-    var projectCalendars = Calendar.calendars.whose({name: "Project Calendar"})
-    var projectCalendar = projectCalendars[0]
-    var event = Calendar.Event({summary: "Important Meeting!", startDate: eventStart, endDate: eventEnd})
-    projectCalendar.events.push(event)
-    event
-
-    // Result: Application("Calendar").calendars.whose({_match: [ObjectSpecifier().name, "Project Calendar"]}).calendars.at(0).events.byId("D7D2AC03-C5DF-4415-B6E3-0243E0314808")</script>
-
-    <!-- <div class="meal_plan">
-        <h3>Weekly Meal Planner</h3>
-        <p>There are 21 meals and 21 snack per week</p>
-
-
-
+        <input type="text">
+        <button type="button" onclick="main()"> go </button>
+   
         <table>
-            <tr> 
-                <th>Meal</th>                
-                <th>Sunday</th>
-                <th>Monday</th>
-                <th>Tuesday</th>
-                <th>Wednesday</th>
-                <th>Thursday</th>
-                <th>Frida</th>
-                <th>Saturday</th>
+            <tr>
+                <th>Meal</th>
+                <th id = "sunday">Sunday</th>
+                <th id = "monday">Monday</th>
+                <th id ="tuesday">Tuesday</th>
+                <th id = "wednesday">Wednesday</th>
+                <th id = "thursday">Thursday</th>
+                <th id = "friday">Friday</th>
+                <th id = "saturday">Saturday</th>
             </tr>
             <tr>
                 <th>Breakfast</th>
-                <td>
-                    <input type="Text" value="protein" id=mbp>
-                    <input type="Text" value="Carb" id=mbp>
-                    <input type="Text" value="Veggie" id=mbp>
-                </td>
-                <td>
-                    <input type="Text" value="protein" id=mbp>
-                    <input type="Text" value="Carb" id=mbp>
-                    <input type="Text" value="Veggie" id=mbp>
-                </td>
-                <td>
-                    <input type="Text" value="protein" id=mbp>
-                    <input type="Text" value="Carb" id=mbp>
-                    <input type="Text" value="Veggie" id=mbp>
-                </td>
-                <td>
-                    <input type="Text" value="protein" id=mbp>
-                    <input type="Text" value="Carb" id=mbp>
-                    <input type="Text" value="Veggie" id=mbp>
-                </td>
-                <td>
-                    <input type="Text" value="protein" id=mbp>
-                    <input type="Text" value="Carb" id=mbp>
-                    <input type="Text" value="Veggie" id=mbp>
-                </td>
-                <td>
-                    <input type="Text" value="protein" id=mbp>
-                    <input type="Text" value="Carb" id=mbp>
-                    <input type="Text" value="Veggie" id=mbp>
-                </td>
-                <td>
-                    <input type="Text" value="protein" id=mbp>
-                    <input type="Text" value="Carb" id=mbp>
-                    <input type="Text" value="Veggie" id=mbp>
-                </td>
-            </tr>
-            <tr>
-                <th>Snack</th>
-                <td>
-                    <input type="Text" value="protein" id=mbp>
-                    <input type="Text" value="Carb" id=mbp>
-                    <input type="Text" value="Veggie" id=mbp>
-                </td>
-                <td>
-                    <input type="Text" value="protein" id=mbp>
-                    <input type="Text" value="Carb" id=mbp>
-                    <input type="Text" value="Veggie" id=mbp>
-                </td>
-                <td>
-                    <input type="Text" value="protein" id=mbp>
-                    <input type="Text" value="Carb" id=mbp>
-                    <input type="Text" value="Veggie" id=mbp>
-                </td>
-                <td>
-                    <input type="Text" value="protein" id=mbp>
-                    <input type="Text" value="Carb" id=mbp>
-                    <input type="Text" value="Veggie" id=mbp>
-                </td>
-                <td>
-                    <input type="Text" value="protein" id=mbp>
-                    <input type="Text" value="Carb" id=mbp>
-                    <input type="Text" value="Veggie" id=mbp>
-                </td>
-                <td>
-                    <input type="Text" value="protein" id=mbp>
-                    <input type="Text" value="Carb" id=mbp>
-                    <input type="Text" value="Veggie" id=mbp>
-                </td>
-                <td>
-                    <input type="Text" value="protein" id=mbp>
-                    <input type="Text" value="Carb" id=mbp>
-                    <input type="Text" value="Veggie" id=mbp>
-                </td>
+ 
             </tr>
             <tr>
                 <th>Lunch</th>
-                <td>
-                    <input type="Text" value="protein" id=mbp>
-                    <input type="Text" value="Carb" id=mbp>
-                    <input type="Text" value="Veggie" id=mbp>
-                </td>
-                <td>
-                    <input type="Text" value="protein" id=mbp>
-                    <input type="Text" value="Carb" id=mbp>
-                    <input type="Text" value="Veggie" id=mbp>
-                </td>
-                <td>
-                    <input type="Text" value="protein" id=mbp>
-                    <input type="Text" value="Carb" id=mbp>
-                    <input type="Text" value="Veggie" id=mbp>
-                </td>
-                <td>
-                    <input type="Text" value="protein" id=mbp>
-                    <input type="Text" value="Carb" id=mbp>
-                    <input type="Text" value="Veggie" id=mbp>
-                </td>
-                <td>
-                    <input type="Text" value="protein" id=mbp>
-                    <input type="Text" value="Carb" id=mbp>
-                    <input type="Text" value="Veggie" id=mbp>
-                </td>
-                <td>
-                    <input type="Text" value="protein" id=mbp>
-                    <input type="Text" value="Carb" id=mbp>
-                    <input type="Text" value="Veggie" id=mbp>
-                </td>
-                <td>
-                    <input type="Text" value="protein" id=mbp>
-                    <input type="Text" value="Carb" id=mbp>
-                    <input type="Text" value="Veggie" id=mbp>
-                </td>
             </tr>
             <tr>
-                <th>Snack</th>
-                <td>
-                    <input type="Text" value="protein" id=mbp>
-                    <input type="Text" value="Carb" id=mbp>
-                    <input type="Text" value="Veggie" id=mbp>
-                </td>
-                <td>
-                    <input type="Text" value="protein" id=mbp>
-                    <input type="Text" value="Carb" id=mbp>
-                    <input type="Text" value="Veggie" id=mbp>
-                </td>
-                <td>
-                    <input type="Text" value="protein" id=mbp>
-                    <input type="Text" value="Carb" id=mbp>
-                    <input type="Text" value="Veggie" id=mbp>
-                </td>
-                <td>
-                    <input type="Text" value="protein" id=mbp>
-                    <input type="Text" value="Carb" id=mbp>
-                    <input type="Text" value="Veggie" id=mbp>
-                </td>
-                <td>
-                    <input type="Text" value="protein" id=mbp>
-                    <input type="Text" value="Carb" id=mbp>
-                    <input type="Text" value="Veggie" id=mbp>
-                </td>
-                <td>
-                    <input type="Text" value="protein" id=mbp>
-                    <input type="Text" value="Carb" id=mbp>
-                    <input type="Text" value="Veggie" id=mbp>
-                </td>
-                <td>
-                    <input type="Text" value="protein" id=mbp>
-                    <input type="Text" value="Carb" id=mbp>
-                    <input type="Text" value="Veggie" id=mbp>
-                </td>
+                <th>Dinner</th>
             </tr>
-            <tr>
-                <th>dinner</th>
-                <td>
-                    <input type="Text" value="protein" id=mbp>
-                    <input type="Text" value="Carb" id=mbp>
-                    <input type="Text" value="Veggie" id=mbp>
-                </td>
-                <td>
-                    <input type="Text" value="protein" id=mbp>
-                    <input type="Text" value="Carb" id=mbp>
-                    <input type="Text" value="Veggie" id=mbp>
-                </td>
-                <td>
-                    <input type="Text" value="protein" id=mbp>
-                    <input type="Text" value="Carb" id=mbp>
-                    <input type="Text" value="Veggie" id=mbp>
-                </td>
-                <td>
-                    <input type="Text" value="protein" id=mbp>
-                    <input type="Text" value="Carb" id=mbp>
-                    <input type="Text" value="Veggie" id=mbp>
-                </td>
-                <td>
-                    <input type="Text" value="protein" id=mbp>
-                    <input type="Text" value="Carb" id=mbp>
-                    <input type="Text" value="Veggie" id=mbp>
-                </td>
-                <td>
-                    <input type="Text" value="protein" id=mbp>
-                    <input type="Text" value="Carb" id=mbp>
-                    <input type="Text" value="Veggie" id=mbp>
-                </td>
-                <td>
-                    <input type="Text" value="protein" id=mbp>
-                    <input type="Text" value="Carb" id=mbp>
-                    <input type="Text" value="Veggie" id=mbp>
-                </td>
-            </tr>
-            <tr>
-                <th>Snack</th>
-                <td>
-                    <input type="Text" value="protein" id=mbp>
-                    <input type="Text" value="Carb" id=mbp>
-                    <input type="Text" value="Veggie" id=mbp>
-                </td>
-                <td>
-                    <input type="Text" value="protein" id=mbp>
-                    <input type="Text" value="Carb" id=mbp>
-                    <input type="Text" value="Veggie" id=mbp>
-                </td>
-                <td>
-                    <input type="Text" value="protein" id=mbp>
-                    <input type="Text" value="Carb" id=mbp>
-                    <input type="Text" value="Veggie" id=mbp>
-                </td>
-                <td>
-                    <input type="Text" value="protein" id=mbp>
-                    <input type="Text" value="Carb" id=mbp>
-                    <input type="Text" value="Veggie" id=mbp>
-                </td>
-                <td>
-                    <input type="Text" value="protein" id=mbp>
-                    <input type="Text" value="Carb" id=mbp>
-                    <input type="Text" value="Veggie" id=mbp>
-                </td>
-                <td>
-                    <input type="Text" value="protein" id=mbp>
-                    <input type="Text" value="Carb" id=mbp>
-                    <input type="Text" value="Veggie" id=mbp>
-                </td>
-                <td>
-                    <input type="Text" value="protein" id=mbp>
-                    <input type="Text" value="Carb" id=mbp>
-                    <input type="Text" value="Veggie" id=mbp>
-                </td>
-            </tr>
-            
+        </table>
 
-        </table> -->
+    <script src="diet.js"></script>
+
     </div>
 
 </body>
