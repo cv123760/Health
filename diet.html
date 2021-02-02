@@ -92,9 +92,21 @@
     
        
     </div>
-        <input type="text">
-        <button type="button" onclick="main()"> go </button>
-   
+        <h5>Moinday</h5>
+        <h6>breakfast</h6>
+
+        <form action="_post">
+            <label for="protein">Pick a protein</label>
+            <input type="text" id="protein" class="protein" value="Egg">
+
+            <label for="carb">Pick a carb</label>
+            <input type="text" id="carb" value="blue berry" class="carb">
+
+            <label for="veggie">Pick a veggie</label>
+            <input type="text" id="veggie" value="veggie mix" class="veggie">
+
+            <button onclick = "main()" type="button" > go </button>
+        </form>
         <table>
             <tr>
                 <th>Meal</th>
@@ -106,8 +118,14 @@
                 <th id = "friday">Friday</th>
                 <th id = "saturday">Saturday</th>
             </tr>
-            <tr>
+            <tr class="breakFast">
                 <th>Breakfast</th>
+                <td>
+                    <p>egg</p>
+                    <p>veggie</p>
+                    <p>carb</p>
+                </td>
+  
  
             </tr>
             <tr>
@@ -117,9 +135,8 @@
                 <th>Dinner</th>
             </tr>
         </table>
-
-    <script src="diet.js"></script>
-
+        
+        <script src="diet.js"></script>
     </div>
 
 </body>
