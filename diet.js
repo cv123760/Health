@@ -51,7 +51,7 @@ function main(){
     let td = createTd(pp, pv, pc);
     console.log(td)
     let app = document.querySelector(".breakFast");
-    app.appendChild(td)
+    app.appendChild(td) 
     
 
 
