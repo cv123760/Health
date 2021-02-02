@@ -1,5 +1,12 @@
+let dayCounter = 0  //keeps track of the day 
+let mealCounter = 0 //keeps track of meal
+
+const meals = [".breakFast", ".lunch", ".dinner"]
+
 
 function main(){ 
+    console.log(dayCounter, "daycounter")
+    console.log(mealCounter, "meal counter")
     class meal {
 
         constructor(protein, carb, veggie){
@@ -50,14 +57,21 @@ function main(){
 
     let td = createTd(pp, pv, pc);
     console.log(td)
-    let app = document.querySelector(".breakFast");
-    app.appendChild(td) 
-    
 
+    let mealTime = meals[mealCounter]
+    console.log(mealTime, "mealtime")
+    let app = document.querySelector(mealTime)
+    app.appendChild(td)  
 
-
-    
-
-    
-
+    mealCounter++
+    dayCounter++
+    if (mealCounter === 3){mealCounter = 0}
+    if (dayCounter === 21){
+        var button = document.querySelector("button");
+        var inputs = document.querySelectorAll("input");
+        inputs[2].remove();
+        inputs[1].remove();
+        inputs[0].remove();
+        button.remove();
+    }
 }

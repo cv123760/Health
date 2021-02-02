@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Diet</title>
-    <link rel="stylesheet" href="stryle.css">
+    <link rel="stylesheet" href="style.css">
     <link rel="js" href="diet.js">
 </head>
 <body>
@@ -97,15 +97,15 @@
 
         <form action="_post">
             <label for="protein">Pick a protein</label>
-            <input type="text" id="protein" class="protein" value="Egg">
+            <input type="text" id="protein" class="protein">
 
             <label for="carb">Pick a carb</label>
-            <input type="text" id="carb" value="blue berry" class="carb">
+            <input type="text" id="carb" class="carb">
 
             <label for="veggie">Pick a veggie</label>
-            <input type="text" id="veggie" value="veggie mix" class="veggie">
+            <input type="text" id="veggie" class="veggie">
 
-            <button onclick = "main()" type="button" > go </button>
+            <button onclick = "main()" type="reset" > go </button>
         </form>
         <table>
             <tr>
@@ -124,10 +124,12 @@
   
  
             </tr>
-            <tr>
+
+            <tr class="lunch">
                 <th>Lunch</th>
             </tr>
-            <tr>
+
+            <tr class="dinner">
                 <th>Dinner</th>
             </tr>
         </table>
