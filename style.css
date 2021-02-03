@@ -204,6 +204,9 @@ button:hover{
  ::placeholder{
     color: rgba(255, 255, 0, 0.685);
 }
+table{
+    color: white;
+}
 
 td, th{
     border: 1px solid white ;
