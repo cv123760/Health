@@ -35,8 +35,7 @@ function main() {
         let mealPrep = document.getElementById("mealPrep")
         mealPrep.appendChild(day)
         dayCounter++
-    
-
+        
         // creates day as a tittle for new day
         let h5 = createE("h5", days[dayCounter]);
         day.appendChild(h5)
@@ -45,7 +44,6 @@ function main() {
 
 
     let nday = document.getElementById("day"+ String(dayCounter));
-    console.log(nday, "this is nday");
     nday.appendChild(meal);
 
     // nday.style.width = 30%
@@ -64,8 +62,19 @@ function main() {
     meal.appendChild(pc);
     meal.appendChild(pv);
 
+    // week complete
+    // delete and rename p tags on top
+    if (dayCounter === 6 && mealCounter === 2 ){
+        let inp = document.getElementById("button");
+        inp.remove()
+        console.log( "if sateement is working")
+        
+    }
+    
 
+    console.log("day ",dayCounter, "meal", mealCounter)
     mealCounter++
+
 
     // reset meal counter 
     if (mealCounter === 3){
@@ -74,10 +83,4 @@ function main() {
 
 
 
-    // week complete
-    // delete and rename p tags on top
-    // if (dayCounter === -1){
-    //     let para = document.querySelectorAll("p")
-    //     para[0] = "All done"
-    // }
 }

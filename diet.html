@@ -23,27 +23,6 @@
     
         <main>
             <div class="food">
-                <h1>Create your weekly meal Calendar</h1>
-                <P class="para">Below are healthy suggestions for each food group</P>
-                <p class="para">the table below will update as foods are added to the fields below</p>
-                <p class="para">What would you like for breakfast on Sunday</p>
-                <h6></h6>
-                <form action="_post">
-                    
-                    <label for="protein">Pick a protein</label>
-                    <input type="text" id="protein" class="protein" value="protein">
-                    
-                    <label for="carb">Pick a carb</label>
-                    <input type="text" id="carb" class="carb" value="carb">
-                    
-                    <label for="veggie">Pick a veggie</label >
-                    <input type="text" id="veggie" class="veggie" value="veggie">
-                    
-                    <button onclick = "main()" type="reset" > go </button>
-                </form>
-            </div>
-
-            <div class="food">
                 <h1>Healthy protein examples</h1>
                 <dl>
                     <li>Chicken Breast</li>
@@ -106,6 +85,25 @@
             </div>
         </main>
     </div>
+    <div class="food">
+        <h1>Create your weekly meal Calendar</h1>
+       
+    </div>
+
+
+    <form action="_post">
+                    
+        <label for="protein">Pick a protein</label>
+        <input type="text" id="protein" class="protein" >
+        
+        <label for="carb">Pick a carb</label>
+        <input type="text" id="carb" class="carb" >
+        
+        <label for="veggie">Pick a veggie</label >
+        <input type="text" id="veggie" class="veggie" >
+        
+        <button onclick = "main()" type="reset" id="button" > go </button>
+    </form>
     
     <div class="mealPrep" id = "mealPrep">
 
