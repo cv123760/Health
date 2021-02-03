@@ -22,7 +22,27 @@
         </header>
     
         <main>
-    
+            <div class="food">
+                <h1>Create your weekly meal Calendar</h1>
+                <P class="para">Below are healthy suggestions for each food group</P>
+                <p class="para">the table below will update as foods are added to the fields below</p>
+                <p class="para">What would you like for breakfast on Sunday</p>
+                <h6></h6>
+                <form action="_post">
+                    
+                    <label for="protein">Pick a protein</label>
+                    <input type="text" id="protein" class="protein" value="protein">
+                    
+                    <label for="carb">Pick a carb</label>
+                    <input type="text" id="carb" class="carb" value="carb">
+                    
+                    <label for="veggie">Pick a veggie</label >
+                    <input type="text" id="veggie" class="veggie" value="veggie">
+                    
+                    <button onclick = "main()" type="reset" > go </button>
+                </form>
+            </div>
+
             <div class="food">
                 <h1>Healthy protein examples</h1>
                 <dl>
@@ -77,9 +97,7 @@
                         <li>Carbs 8 OZ</li>
                     </div>
                     <div class="gender">
-                        <h4>
-                            Female
-                        </h4>
+                        <h4>Female</h4>
                         <li>Protein 4 OZ </li>
                         <li>Carbs 4 OZ</li>
                     </div>
@@ -88,54 +106,13 @@
             </div>
         </main>
     </div>
-    <h1>Create your weekly meal Calendar</h1>
     
-       
+    <div class="mealPrep" id = "mealPrep">
+
     </div>
-        <h5>Moinday</h5>
-        <h6>breakfast</h6>
-
-        <form action="_post">
-            <label for="protein">Pick a protein</label>
-            <input type="text" id="protein" class="protein">
-
-            <label for="carb">Pick a carb</label>
-            <input type="text" id="carb" class="carb">
-
-            <label for="veggie">Pick a veggie</label>
-            <input type="text" id="veggie" class="veggie">
-
-            <button onclick = "main()" type="reset" > go </button>
-        </form>
-        <table>
-            <tr>
-                <th>Meal</th>
-                <th id = "sunday">Sunday</th>
-                <th id = "monday">Monday</th>
-                <th id ="tuesday">Tuesday</th>
-                <th id = "wednesday">Wednesday</th>
-                <th id = "thursday">Thursday</th>
-                <th id = "friday">Friday</th>
-                <th id = "saturday">Saturday</th>
-            </tr>
-            <tr class="breakFast">
-                <th>Breakfast</th>
-
-  
- 
-            </tr>
-
-            <tr class="lunch">
-                <th>Lunch</th>
-            </tr>
-
-            <tr class="dinner">
-                <th>Dinner</th>
-            </tr>
-        </table>
+        
         
         <script src="diet.js"></script>
-    </div>
 
 </body>
 </html>

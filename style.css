@@ -104,6 +104,7 @@ main{
     background-color:rgba(1, 97, 97, 0.555);
     padding-bottom: 5px;
     margin-bottom: 10px;
+    color: white;
 }
 
 h1{ margin-bottom: 10px;
@@ -152,6 +153,8 @@ h4{
  table{
      background-color: darkcyan;
      width: 100%;
+     color: white;
+
  }
 
  tr{
@@ -204,14 +207,39 @@ button:hover{
  ::placeholder{
     color: rgba(255, 255, 0, 0.685);
 }
-table{
-    color: white;
-}
+
 
 td, th{
     border: 1px solid white ;
 }
 
+h5{
+    font-size: 1.7rem;
+    margin: 30px 50px 10px 0;
+    color: yellow;
+    min-width: 30%;
+}
+h6{
+    font-size: 1.3rem;
+    margin: 1px;
+    color: white;
+}
+
+
+.mealPrep{
+    background-color:rgba(1, 97, 97, 0.746);
+    padding-bottom: 5px;
+    margin-bottom: 10px;
+    color: white;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.mealPrep p{
+    background-color:rgba(1, 97, 97, 0.986);
+    padding: 10px;
+    border-bottom: 1px solid rgba(0, 196, 196, 0.986);
+    margin: 5px 20px 5px 0}
 
 /* Tablet  */
 @media (max-width: 768px){

@@ -1,77 +1,83 @@
-let dayCounter = 0  //keeps track of the day 
-let mealCounter = 0 //keeps track of meal
+let dayCounter = -1  //keeps track of the day 
+let mealCounter = 0 //keeps track of meal time
 
-const meals = [".breakFast", ".lunch", ".dinner"]
+const meals = ["BreakFast", "Lunch", "Dinner"] // to cylce throug meals each day
+const days = ["Sunday","Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"] //to cycle days of the week 
 
 
-function main(){ 
-    console.log(dayCounter, "daycounter")
-    console.log(mealCounter, "meal counter")
-    class meal {
+// Called with button click. Takes user input to return and returns a meal plan. can be re run until the meal plan for the week is completer. 
+function main() {
 
-        constructor(protein, carb, veggie){
-        this.protein = protein;
-        this.veggie = veggie;
-        this.carb = carb;
-        }
-        introduce() {
-            debugger;
-            console.log("${this.protein}, ${this.veggie}, ${this.carb}");
-        }
+    // creates element with text. e is for element type. t is for text
+    function createE(e,t){
+        let el = document.createElement(e)
+        el.appendChild(document.createTextNode(t))
+        return el
     }
- 
-    function getag(input){
-    let a = document.querySelector(input).value
-    return a
+
+      // get gets tags by id 
+      function getag(input){
+        let a = document.getElementById(input).value
+        return a
     }
 
 
-    let p = getag(".protein");
-    let c = getag(".carb");
-    let v = getag(".veggie");
+        //create div class meal
+        let meal = document.createElement("div.meal")
+        let h6 = createE("h6",meals[mealCounter])
+        mealPrep.appendChild(meal)
+        meal.appendChild(h6)
 
-    console.log(p, c, v)
-
-    let newMeal = new meal(p, c, v);
-    console.log("protein is " ,newMeal.protein)
-
-    function createE(text){
-        let p = document.createElement("p")
-        let n = document.createTextNode(text)
-        p.appendChild(n)
-        return p
-    }   
+        
+    if (mealCounter === 0){    
+        // create a div class day, append place inside mealPrep div
+        var day = document.createElement("div.day");
+        let mealPrep = document.getElementById("mealPrep")
+        mealPrep.appendChild(day)
+        dayCounter++
     
-    function createTd(p,v,c){
-        let td = document.createElement("td");
-        td.appendChild(p);
-        td.appendChild(v)
-        td.appendChild(c)
-        console.log(td, "before return")
-        return td
+
+        // creates day as a tittle for new day
+        let h5 = createE("h5", days[dayCounter]);
+        day.appendChild(h5)
+        day.setAttribute("id", "day" + String(dayCounter))
     }
-    
-    let pp = createE(newMeal.protein);
-    let pv = createE(newMeal.veggie);
-    let pc = createE(newMeal.carb);
 
-    let td = createTd(pp, pv, pc);
-    console.log(td)
 
-    let mealTime = meals[mealCounter]
-    console.log(mealTime, "mealtime")
-    let app = document.querySelector(mealTime)
-    app.appendChild(td)  
+    let nday = document.getElementById("day"+ String(dayCounter));
+    console.log(nday, "this is nday");
+    nday.appendChild(meal);
+
+    // nday.style.width = 30%
+
+    // get input vales
+    let p = getag("protein");
+    let c = getag("carb");
+    let v = getag("veggie");
+
+    // create p tags with input values 
+    let pp = createE("p", p);
+    let pc = createE("p", c);
+    let pv = createE("p", v);
+
+    meal.appendChild(pp);
+    meal.appendChild(pc);
+    meal.appendChild(pv);
+
 
     mealCounter++
-    dayCounter++
-    if (mealCounter === 3){mealCounter = 0}
-    if (dayCounter === 21){
-        var button = document.querySelector("button");
-        var inputs = document.querySelectorAll("input");
-        inputs[2].remove();
-        inputs[1].remove();
-        inputs[0].remove();
-        button.remove();
+
+    // reset meal counter 
+    if (mealCounter === 3){
+        mealCounter = 0
     }
+
+
+
+    // week complete
+    // delete and rename p tags on top
+    // if (dayCounter === -1){
+    //     let para = document.querySelectorAll("p")
+    //     para[0] = "All done"
+    // }
 }
