@@ -8,6 +8,16 @@ const days = ["Sunday","Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "
 // Called with button click. Takes user input to return and returns a meal plan. can be re run until the meal plan for the week is completer. 
 function main() {
 
+    // get input vales
+    let p = getag("protein");
+    let c = getag("carb");
+    let v = getag("veggie");
+
+    // return if mising values
+    if (p === "" || c === "" || v === ""){return}
+
+
+
     // creates element with text. e is for element type. t is for text
     function createE(e,t){
         let el = document.createElement(e)
@@ -48,11 +58,6 @@ function main() {
 
     // nday.style.width = 30%
 
-    // get input vales
-    let p = getag("protein");
-    let c = getag("carb");
-    let v = getag("veggie");
-
     // create p tags with input values 
     let pp = createE("p", p);
     let pc = createE("p", c);
@@ -67,12 +72,8 @@ function main() {
     if (dayCounter === 6 && mealCounter === 2 ){
         let inp = document.getElementById("button");
         inp.remove()
-        console.log( "if sateement is working")
-        
     }
     
-
-    console.log("day ",dayCounter, "meal", mealCounter)
     mealCounter++
 
 
