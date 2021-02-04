@@ -232,6 +232,7 @@ h6{
     color: white;
     display: flex;
     flex-wrap: wrap;
+    justify-content: space-evenly;
 }
 
 .mealPrep p{
@@ -245,7 +246,7 @@ h6{
     .info{
         max-width: 70%
     }
-
+3
     li{
         min-width: 50%;
     }
