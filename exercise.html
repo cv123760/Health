@@ -13,9 +13,48 @@
         <nav>
             <a href="diet.html">Diet</a>
             <a href="exercise.html">Exercise</a> 
+            <a href="register.html">Register</a>
         </nav>
     </header>
+
     <main>
+        <h1>Distance</h1>
+        <h1>Intervals</h1>
+
+        <div class="stats">
+            <h1>Interval Training</h1>
+            <h2>Find your interval speeds</h2>
+            <p>Run a minimum of 1.5 miles at a comfortable pace. Track your time. Determine your interval speeds by filling out the information below</p>
+
+
+
+            <form>
+                <label class="label" for="distance">Total Distance</label>
+                <input id = "distance" type="text" >
+
+                <label class="label" for="time">Time</label>
+                <input id = "time" type="text" > 
+                
+                <p>How long would you like your interval work out to be</p>
+
+                <label class="label" for="sessionDuration">Workout Time in minutes:</label>
+                <input id="sessionDuration" type="text" >
+
+                <label class="label" for="intervalLength">number of Intervals: </label>
+                <input id="intervalLength" type="text" > 
+                
+
+                <button onclick="main()" type = "button">Go</button>
+
+            </form>
+            <h4 id="fastInterval"></h4>
+            <p id="runFast"></p>
+            <h4 id = slowInterval></h4>
+            <p id = "runSlow"></p>
+            <p id = "total"></p>
+
+            <script src="interval.js"></script>     
+        <h1>Hihg intensity</h1>
 
     </main>
     

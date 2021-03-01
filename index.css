@@ -27,9 +27,11 @@ nav a{
 }
 
 .container{
+    max-width: 1024px;
+
 }
 main{
-    background-color: rgba(12, 82, 82, 0.459);
+    background-color: rgba(12, 82, 82, 0.856);
 }
 
 h1{
@@ -50,9 +52,21 @@ button{
     border: none;
 }
 
-main p:hover{
+main button:hover{
     transform: scale(1.1);
     transition-duration: 500ms;
+}
+
+.index{
+    padding: 10px;
+}
+
+a{
+    color: yellow;
+}
+
+h3{
+    color: white;
 }
 
 .plan{
@@ -88,4 +102,14 @@ h2{
     background-color: darkcyan;
     border-radius: 20px; 
     text-align: center;
+}
+
+p, label{
+    color: white;
+    display: block;
+    font-size: 1.2rem;
+}
+
+.stats{
+    background-color: rgba(12, 82, 82, 0.459);
 }
