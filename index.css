@@ -34,6 +34,12 @@ main{
     background-color: rgba(12, 82, 82, 0.856);
 }
 
+.login{
+    border-radius: 10px;
+    width: fit-content;
+    margin:20% auto
+}
+
 h1{
     text-align: center;
     color: yellow;
@@ -63,6 +69,7 @@ main button:hover{
 
 a{
     color: yellow;
+    text-decoration: none;;
 }
 
 h3{
@@ -112,4 +119,9 @@ p, label{
 
 .stats{
     background-color: rgba(12, 82, 82, 0.459);
+}
+
+form{
+    padding: 10px;
+    text-align: center;
 }
