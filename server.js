@@ -1,28 +1,29 @@
 const express = require("express");
 const app = express();
 const bodyParser = require("body-parser")
-const https = require("https")
+const https = require("https");
+
+app.use(express.static("public"))
 
 app.use(bodyParser.urlencoded({extended:true}));
+
 
 
 app.get("/", function(req, res){
     res.sendFile(__dirname+"/index.html")
 });
 
-
 app.post("/", function(req, res){
-    let name = req.body.password;
-    console.log(name)
+    res.sendFile(__dirname+"/public/main.html")
+});
 
-    const api = "https://jsonplaceholder.typicode.com/users";
+app.get("/diet", function(req, res){
+    res.sendFile(__dirname+"/diet.js")
+});
 
-    https.get(api, function(response){
-        
-    });
-})
+app.get("/renderdiet")
 
 
-app.listen("3000", function(){
+app.listen(process.env.PORT || "3000", function(){
     console.log("server is running")
 });
