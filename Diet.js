@@ -1,9 +1,5 @@
-import Foods from './food.js'
-import prep from './prep.js';
-
-
-
-
+import Foods from './food'
+import prep from './prep';
     
 let i;
 for(i in Foods ){

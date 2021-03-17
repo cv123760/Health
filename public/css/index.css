@@ -1,5 +1,4 @@
 body{
-    background-image: url(images/Avocado-50.jpg);
     background-repeat: no-repeat;
     background-position: top;
     margin: 0 auto;
@@ -9,8 +8,14 @@ body{
 header{
     display: flex;
     justify-content: space-between;
-    background-color: rgba(0, 128, 128, 0.541);
-    padding: 10px 10px 10px 30px;
+    background-color: #d5d7d7;
+    padding: 10px 0;
+    align-items: center;
+}
+
+header img {
+    padding: 0;
+    margin-left: -25px;
 }
 
 nav{
@@ -18,7 +23,7 @@ nav{
 }
 
 nav a{
-    background-color: darkcyan;
+    background-color: #386a2e;
     color:white;
     font-size: 1.5rem;
     padding: 17px 20px;
@@ -28,10 +33,23 @@ nav a{
 
 .container{
     max-width: 1024px;
+}
+
+main{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
 
 }
-main{
-    background-color: rgba(12, 82, 82, 0.856);
+.divider{
+    max-width: 48%;
+    height: min-content;
+}
+
+.divider1{
+    max-width: 48%;
+    height: min-content;
+    margin-top: -150px;
 }
 
 .login{
@@ -41,10 +59,14 @@ main{
 }
 
 h1{
-    text-align: center;
-    color: yellow;
-    padding: 10px;
-    margin: 0
+    text-align: left;
+    font-family: serif;
+}
+
+h2{
+    margin: 0;
+    border-radius: 20px; 
+    text-align: left;
 }
 
 button{
@@ -62,19 +84,18 @@ main button:hover{
     transform: scale(1.1);
     transition-duration: 500ms;
 }
-
-.index{
-    padding: 10px;
+img{
+    width: 100%;
+    margin-top: 20px;
 }
 
 a{
-    color: yellow;
-    text-decoration: none;;
+    text-decoration: none;
+    font-family: serif;
+    color: black;
 }
 
-h3{
-    color: white;
-}
+
 
 .plan{
     display: flex;
@@ -103,18 +124,12 @@ h3{
     width: 100%;
 }
 
-h2{
-    color: white;  
-    margin: 0;
-    background-color: darkcyan;
-    border-radius: 20px; 
-    text-align: center;
-}
-
 p, label{
-    color: white;
     display: block;
     font-size: 1.2rem;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    color: rgb(95, 95, 95);
+
 }
 
 .stats{
