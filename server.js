@@ -13,6 +13,9 @@ app.get("/", function(req, res){
     res.sendFile(__dirname+"/index.html")
 });
 
+app.get("/image", function(req, res){
+    res.sendFile(__dirname+"/public/images/snack-50.jpg")
+});
 // Login POST 
 app.post("/", function(req, res){
     const email = req.body.email
