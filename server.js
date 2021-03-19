@@ -16,6 +16,7 @@ app.get("/", function(req, res){
 app.get("/image", function(req, res){
     res.sendFile(__dirname+"/public/images/snack-50.jpg")
 });
+
 // Login POST 
 app.post("/", function(req, res){
     const email = req.body.email
