@@ -26,7 +26,7 @@ app.post("/", function(req, res){
 
 
 
-// javascript files
+// javascript files and css photos
 app.get("/diet", function(req, res){
     res.sendFile(__dirname+"/diet.js")
 });
@@ -39,6 +39,7 @@ app.get("/prep", function(req, res){
 app.get("/intervals", function(req, res){
     res.sendFile(__dirname+"/intervals.js")
 });
+
 
 
 
