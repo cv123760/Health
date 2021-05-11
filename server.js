@@ -6,7 +6,7 @@ const mongoose = require("mongoose");
 const { link } = require("fs");
 const { getMaxListeners } = require("process");
 
-const who = ''
+let who = ''
 
 // link to mongoDB
 mongoose.connect('mongodb+srv://cv123760:egbdf777@cluster0.xlmyt.mongodb.net/usersDB', {useNewUrlParser: true})
@@ -75,8 +75,9 @@ app.post("/", function(req, res){
         // check username and password
         if (!currentUser){
             res.redirect("/register")
+            console.log ("user not found.")
         }else if (email === currentUser.email && password === currentUser.password) {
-            who = email
+            who = currentUser.name
             res.sendFile(__dirname+"/public/main.html")
         }else {
             console.log("invalid log in")
