@@ -6,6 +6,7 @@ const mongoose = require("mongoose");
 const { link } = require("fs");
 const { getMaxListeners } = require("process");
 
+const who = ''
 
 // link to mongoDB
 mongoose.connect('mongodb+srv://cv123760:egbdf777@cluster0.xlmyt.mongodb.net/usersDB', {useNewUrlParser: true})
@@ -36,18 +37,27 @@ app.get("/", function(req, res){
 
 // javascript files and css photos
 app.get("/diet", function(req, res){
+    if (who === ''){
+        res.redirect('/')
+    }
     res.sendFile(__dirname+"/diet.js")
 });
 app.get("/food", function(req, res){
+    if (who === ''){
+        res.redirect('/')
+    }
     res.sendFile(__dirname+"/food.js")
 });
 app.get("/prep", function(req, res){
+    if (who === ''){res.redirect("/")}
     res.sendFile(__dirname+"/prep.js")
 });
 app.get("/intervals", function(req, res){
+    if (who === ''){res.redirect("/")}
     res.sendFile(__dirname+"/intervals.js")
 });
 app.get("/register", function(req, res){
+    if (who === ''){res.redirect("/")}
     res.sendFile(__dirname+"/public/register.html")
 });
 
@@ -66,7 +76,7 @@ app.post("/", function(req, res){
         if (!currentUser){
             res.redirect("/register")
         }else if (email === currentUser.email && password === currentUser.password) {
-        
+            who = email
             res.sendFile(__dirname+"/public/main.html")
         }else {
             console.log("invalid log in")
