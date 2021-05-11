@@ -36,7 +36,7 @@ app.get("/", function(req, res){
 
 
 // javascript files and css photos
-app.get("/diet", function(req, res){
+app.get("/diet" || "/diet.html", function(req, res){
     if (who === ''){
         res.redirect('/')
     }
