@@ -1,34 +1,53 @@
-h1{ 
-    background-color: yellow;
-    text-align: center;
-    height: fit-content;
-    padding: 1rem;
-    font-size: 2rem;
-    width: 50%;
-}
-.types{
+.foodsList{
     display: flex;
-    margin: 0;
-    width:50%;
-    flex-wrap: wrap;
     justify-content: space-between;
+    flex-wrap: wrap;
+    
 }
-.types p{ 
-    background-color: purple;
-    text-align: center;
-    height: 3rem;
-    width: 10rem;
+
+button{
+    width: 28%;
     border-radius: .5rem;
-    color: white;
     font-size: 1rem;
-    padding: 1rem;
+    margin: .5rem;
+    padding: .5rem;
+    background-color: rgb(255, 255, 255);
 }
 
-.types p:hover{
-    font-size: 1.2rem;
-    padding: .9rem;
+.main{
+    max-width:45%;
+    display: inline-block;
+    vertical-align: top;
+    margin-right: 2%;
 }
 
-.plan{
-    display: inline;
+.mealPlan{
+    max-width: 50%;
+    display: inline-block;
+    vertical-align: top;
+    margin-right: 2%;
+}
+
+.day{
+    border-radius: 1rem;
+    min-width :100%;
+    border: 1px solid black;
+    padding:1rem
+
+}
+
+
+.meal{
+    display: inline-block;
+    width: 31%;
+    vertical-align: top;
+    margin-right: 2%;
+}
+h1{
+    margin-top:0
+}
+
+h2{
+    margin:0;
+    text-align: center;
 }

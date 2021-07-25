@@ -1,16 +1,24 @@
 import React from "react"
-import {plan} from "./App"
 
-function FoodGroup(props) {
-   const group = props.food.map((element)=>{
-      return (<p onClick = {() => {
-         plan.[props.foodString].push(element)
-         console.log(plan)
-      }
-   }>{element}</p>)
-   })
-   return <div className="types">{group}</div>
 
+const ListFoodGroups = (props)=>{
+
+
+   return (
+      <div>
+         <h2>{props.keyName}</h2>
+         
+         <div className = "foodsList">
+            {props.list.map(foodName =>  {
+               return <button
+               onClick = {()=> {
+                  props.addToPlan(props.keyName,foodName)
+                  }}>{foodName}</button>
+            })}  
+         </div>
+                                                 
+      </div>
+   )  
 }
-export default FoodGroup
 
+export default ListFoodGroups

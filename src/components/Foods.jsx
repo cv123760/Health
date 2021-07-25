@@ -1,5 +1,5 @@
 const Foods = {
-    protein:[
+    Protein:[
         'Chicken Breast',
         'Turkey breasts',
         'White Fish',
@@ -9,7 +9,7 @@ const Foods = {
         
     ],
 
-    carbs:[
+    Carbs:[
         'Quinoa',
         'Brown Rice',
         'Oatmeal **',
@@ -24,7 +24,7 @@ const Foods = {
         'Acai Berries',
         'Sweet Potato'
     ],
-    veggies:[
+    Veggies:[
         'Broccoli',
         'Asparragus',
         'Spinach',
