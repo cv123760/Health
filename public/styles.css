@@ -1,3 +1,5 @@
+.warning{color:red}
+
 .foodsList{
     display: flex;
     justify-content: space-between;
@@ -18,21 +20,26 @@ button{
     max-width:45%;
     display: inline-block;
     vertical-align: top;
-    margin-right: 2%;
+    height: 100vh;
+    overflow-y: scroll;
 }
 
 .mealPlan{
-    max-width: 50%;
+    max-width: 53%;
     display: inline-block;
     vertical-align: top;
     margin-right: 2%;
+    height:100vh;
+    overflow-y: scroll;
+
 }
 
 .day{
     border-radius: 1rem;
-    min-width :100%;
+    width: 100%;
     border: 1px solid black;
     padding:1rem
+
 
 }
 
@@ -51,3 +58,13 @@ h2{
     margin:0;
     text-align: center;
 }
+
+
+/* for smaller screens */
+@media(max-width: 400px){
+    button{  
+        width: 100%;
+    }
+}
+
+
