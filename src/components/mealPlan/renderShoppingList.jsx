@@ -1,23 +1,14 @@
 import React from "react"
 
 const RenderShoppingList = (props)=>{
-
-    let keys = Object.keys(props.list)
-    return(
+    const list = Object.keys(props.list)
+    return (
         <div>
-            {keys.map(keyName=>{
-                return(
-                    props.list.[keyName].map(food=> {
-                        return(
-                            <p id = {food} key = {food}></p>
-                        )
-                    }
-                    )
-                )
-                })
-            }
-        </div>
+            {list.map(string=>{
 
+                <p>[string]</p>
+            })}
+        </div>
     )
 
 }

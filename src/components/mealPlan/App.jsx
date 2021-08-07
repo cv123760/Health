@@ -1,5 +1,5 @@
 
-import React from "react";
+import React, { useState } from "react";
 import ListFoodGroups from "./listFoodGroups"
 import Foods from "./Foods"
 import RenderMealPlan from "./renderMealPlan";
@@ -10,25 +10,29 @@ import RenderShoppingList from "./renderShoppingList";
 
 
 const App = ()=>{
+
+// create a list of foods to choose from 
     const foodsObjectKeys = Object.keys(Foods)
-    const date = new Date();
+
+
+// Create meal Plan 
+    // to track day, meal time, and when plan is full
     const foodTracker = {}
 
-    const shoppingList = {}
+    const date = new Date();
 
     let today = date.getDay();
-    
-
-
-    const generateFoodTracker  = ()=>{
-        foodsObjectKeys.forEach(keyName=>{
-            foodTracker.[keyName] = 0
-            foodTracker.[keyName + "Day"] = today
-        })
-    }
-
 
     const addToPlan = (keyName, valueName)=>{
+        // add new fields to tracker
+        if (!foodTracker.[keyName + " total"]){
+            foodTracker.[keyName + " total"] = 0
+            foodTracker.[keyName] = 0
+            foodTracker.[keyName + "Day"] = today
+        }
+        
+        // reset values to loop throung meals and move on to next day
+        // when current day is full
         if (foodTracker.[keyName]===dailyMeals.length){
             foodTracker.[keyName] = 0
             foodTracker.[keyName + "Day"] ++
@@ -36,9 +40,8 @@ const App = ()=>{
                 foodTracker.[keyName + "Day"]=0
             }
         }
-        if (!foodTracker.[keyName + " total"]){
-            foodTracker.[keyName + " total"] = 0
-        }
+        
+        
         foodTracker.[keyName + " total"]++
         if (foodTracker.[keyName + " total"] > 21){return}
 
@@ -46,47 +49,41 @@ const App = ()=>{
         let mealTime = dailyMeals[foodTracker.[keyName]]
         let pTag = document.getElementById(day+mealTime+keyName)
         pTag.innerHTML = valueName
-        updateShoppingList(valueName, keyName)
         foodTracker.[keyName]++
+        updateShoppingList(valueName)
+        console.log(shoppingList)
     }
 
-    const updateShoppingList=(valueName, keyName)=>{
-        if (!shoppingList.[valueName]){
-            shoppingList.[valueName] = 0
+
+
+// Create a shopping list
+    const shoppingList = {}
+
+    const updateShoppingList=(string)=>{
+        if (!shoppingList.[string]){
+            shoppingList.[string] = 0
         }
-        shoppingList.[valueName]++
 
-        let item = document.getElementById(valueName)
+        shoppingList.[string]++
 
-        item.innerHTML = shoppingList.[valueName] + " " + valueName
     }
-
-    const addFood = (key, value)=>{
-        let food = document.getElementById("add"+key).value
-        if (food === ""){
-            return
-        }else{console.log(food)
-            Foods.[key].push(food)
-            console.log(Foods)
-            document.getElementById("add"+key).value = ""}
-        
-    }
-
-    generateFoodTracker()
+    
     return (
         <div className="body">
+
             <p className="warning">Under cosntruction</p>
             <div className = "main">
                 <h1>Foods</h1>
                 {foodsObjectKeys.map(foodGroup => {
+                    console.log(Foods.[foodGroup])
                     return (
                         <ListFoodGroups 
                         key = {foodGroup}
                         keyName = {foodGroup} 
                         list = {Foods.[foodGroup]}
                         addToPlan = {addToPlan}
-                        addFood = {addFood}
-                        />
+                        updateShoppingList = {updateShoppingList}
+                         />
                     )
                 })}
             </div>
@@ -97,14 +94,14 @@ const App = ()=>{
                 dailyMeals = {dailyMeals}
                 foodsObjectKeys = {foodsObjectKeys}
                 day1 = {today}
+                
 
                 />
             </div>
             <h1>Shopping List</h1>
             <div id = "shoppingList">
                 <RenderShoppingList
-                list = {Foods}
-                shoppingList= {shoppingList}
+                list = {shoppingList}
                 />
 
 

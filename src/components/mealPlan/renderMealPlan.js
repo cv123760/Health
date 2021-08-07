@@ -29,6 +29,8 @@ const RenderMealPlan = (props)=>{
                                             return <p 
                                             id= {props.week[day]+meal+keyName}
                                             key = {props.week[day]+meal+keyName}
+                                            onDrop = {(event)=>(event.target.value = props.dragged)}
+
                                             > </p>
                                         })}
                                         
