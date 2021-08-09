@@ -4,7 +4,6 @@
     display: flex;
     justify-content: space-between;
     flex-wrap: wrap;
-    
 }
 
 button{
@@ -25,10 +24,9 @@ button{
 }
 
 .mealPlan{
-    max-width: 53%;
+    min-width: 55%;
     display: inline-block;
     vertical-align: top;
-    margin-right: 2%;
     height:100vh;
     overflow-y: scroll;
 
@@ -36,7 +34,8 @@ button{
 
 .day{
     border-radius: 1rem;
-    width: 100%;
+    width: 92
+    %;
     border: 1px solid black;
     padding:1rem
 

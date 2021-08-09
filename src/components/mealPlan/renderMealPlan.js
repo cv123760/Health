@@ -1,52 +1,48 @@
 import React from 'react'
+import week from './week'
+import Meals from './dailyMeals'
 
-const RenderMealPlan = (props)=>{
+const RenderMealPlan=props=>{
+    let dayNum = props.day
 
-    const resetDay=()=>{
-        day++
-        if(day === 7){day = 0}
+    const nextDay=()=>{
+        dayNum++
+        if (dayNum === week.length){dayNum=0}
     }
 
-
-    let day = props.day1
-    let k = 0 //to add unique keys and avoid console warnings.
-
     return (
-        <div 
-        className = "foodsList"
-        >
-            {props.week.map(()=>{
-                return (
-                    <div className = "day" key = {k}>
-                        <h2 key = {"h2"+k}>{props.week[day]}</h2>
-                        <div key = {"filler"+k} className="filler">
-                            {props.dailyMeals.map(meal=>{
-                                k++
-                                return(
-                                    <div className="meal" key = {meal + k}>
-                                        <h3 key = {"h3"+meal +k}>{meal}</h3>
-                                        {props.foodsObjectKeys.map(keyName=>{
-                                            return <p 
-                                            id= {props.week[day]+meal+keyName}
-                                            key = {props.week[day]+meal+keyName}
-                                            onDrop = {(event)=>(event.target.value = props.dragged)}
-
-                                            > </p>
-                                        })}
-                                        
-                                    </div>
-                                )
-                            })}
-                            {resetDay()}
+        week.map(()=>{
+            
+            return (
+                <div 
+                key={"div"+week[dayNum]}
+                className = "day"
+                >
+                    <h2 key= {week[dayNum]}>{week[dayNum]}</h2>
+                    {Meals.map(meal=>{
+                        return (
+                            <div 
+                            key = {week[dayNum]+meal}
+                            className = "meal"
+                            >
+                                <h3>{meal}</h3>
+                                {props.groupList.map(category=>{
+                                    return<p 
+                                    key = {week[dayNum]+meal+category} 
+                                    id = {week[dayNum]+meal+category}
+                                    ></p>
+                                })}
                             
-                        </div>
-                    </div>
-
-                )
-            }
-                
-                )}
-        </div>
-    )
+                            </div>
+                        )
+                           
+                    })}
+                    {nextDay()}
+                </div>
+            )
+        })
+    )   
+    
 }
+
 export default RenderMealPlan

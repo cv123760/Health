@@ -3,58 +3,54 @@ import React, {useState}   from "react"
 
 
 const ListFoodGroups = (props)=>{
-   const [foods, updateFoods] = useState(props.list)
-   const addFood = (string)=>{
-      updateFoods(preveValue=>[...preveValue, string])
+   const [foodGroup, updatefoodGroup] = useState(props.list)
+
+   const addToFoodGroup = item=>{
+      if (item === ""){return}
+      updatefoodGroup(prevValue=>{
+         return [...prevValue, item]
+         })
    }
+   
 
-
-   return (
+   return ( 
       <div>
-         <h2>{props.keyName}</h2>
-         
-         <div key = {props.keyName} 
-            className = "foodsList"
-            id = {props.keyName}
-            >
-
-
-            {foods.map(foodName =>  {
-               let b1 =
-               <button
-               key = {foodName}
-               onClick = {()=> {
-                  props.addToPlan(props.keyName,foodName,foods)
-                  }}
-               
-                  >
-                     {foodName}
-               </button>
-               return b1
-            })}  
-         </div>
-         <form>
+            {foodGroup.map(item=>{
+            return <button 
+            
+            key = {item}
+            onClick = {event=>{
+               event.preventDefault()
+               props.addToMealPlan(item,props.group)}
+               }
+            >{item}</button>
+         })}
+            <form>
                <input 
                type="text" 
-               id= {"add"+ props.keyName} 
-               placeholder = {"add " + props.keyName} 
+               id = {"input"+ props.group}
+               placeholder = "Add new Item"
                />
 
-
                <button 
-               onClick = {(event)=>{
-                  event.preventDefault()
-                  let string = document.getElementById("add"+ props.keyName).value
-                  if (string === ""){return}
-                  document.getElementById("add"+ props.keyName).value = ""
-                  addFood(string, props.keyName)
-                  props.updateShoppingList(string)
-               }}>+</button>
+                  onClick={event=>{
+                     event.preventDefault()
+                     let food = document.getElementById("input"+ props.group).value
+                     addToFoodGroup(food, props.group)
+                     document.getElementById("input"+ props.group).value = ""
+                  }}
+               >+</button>
             </form>
+            
+            
          
-                            
-      </div>
-   )  
-}
 
+
+      </div>
+      
+   )
+   
+   
+      
+}
 export default ListFoodGroups

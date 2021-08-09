@@ -8,7 +8,7 @@ const Foods = {
         'lean beef', 
     ],
 
-    Carbs:[
+    Carb:[
         'Quinoa',
         'Brown Rice',
         'Oatmeal **',
@@ -23,7 +23,7 @@ const Foods = {
         'Acai Berries',
         'Sweet Potato'
     ],
-    Veggies:[
+    Veggie:[
         'Broccoli',
         'Asparragus',
         'Spinach',

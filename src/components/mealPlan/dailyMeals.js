@@ -1,7 +1,7 @@
-const dailyMeals = [
+const Meals = [
     "Breakfast",
     "Lunch",
     "Diner"
 ]
 
-export default dailyMeals
+export default Meals
