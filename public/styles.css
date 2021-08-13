@@ -1,4 +1,11 @@
 .warning{color:red}
+body{
+    max-width: 1024px;
+    margin:0 auto;
+    background-color: rgb(99, 99, 99);
+    color: white;
+
+}
 
 .foodsList{
     display: flex;
@@ -10,17 +17,20 @@ button{
     width: 28%;
     border-radius: .5rem;
     font-size: 1rem;
-    margin: .5rem;
+    margin: .2rem;
     padding: .5rem;
-    background-color: rgb(255, 255, 255);
+    background-color: rgb(99, 99, 99);
+    color:white;
+    border:1px solid white;
+
 }
 
 .main{
-    max-width:45%;
+    max-width:44%;
     display: inline-block;
     vertical-align: top;
     height: 100vh;
-    overflow-y: scroll;
+    margin-right: 1%;
 }
 
 .mealPlan{
@@ -29,15 +39,15 @@ button{
     vertical-align: top;
     height:100vh;
     overflow-y: scroll;
-
+    color:white;
 }
 
 .day{
     border-radius: 1rem;
-    width: 92
-    %;
-    border: 1px solid black;
-    padding:1rem
+    width: 92%;
+    border: 1px solid rgb(255, 255, 255);
+    padding:1rem;
+    margin-top: .5rem;
 
 
 }
@@ -45,9 +55,15 @@ button{
 
 .meal{
     display: inline-block;
-    width: 31%;
+    width: 30%;
     vertical-align: top;
-    margin-right: 2%;
+    background-color:#284633;
+    color:white;
+    border-radius: 1rem;
+    text-align: center;
+    margin: .5rem;
+]
+
 }
 h1{
     margin-top:0
@@ -57,6 +73,14 @@ h2{
     margin:0;
     text-align: center;
 }
+
+h3{    
+    border-bottom: 1px solid white;
+    width: fit-content;
+    margin: .5rem auto;
+}
+
+input
 
 
 /* for smaller screens */

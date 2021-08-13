@@ -1,18 +1,22 @@
 import React from 'react'
 
 
-const ShoppingList=props=>{
 
+const ShoppingList=props=>{
+    
     return (
-        props.list.map(item=>{
-            return(
-                <p 
-                key={"shopping"+item}
-                id={"shopping"+item}
-                ></p>
-            )    
-        })
-    ) 
+        <div>
+            {props.list.map(itme=>{
+                return <p key={"shoppint" + itme}>item</p>
+            })
+            
+            }
+        </div>
+
+
+    )
 }
+
+
 
 export default ShoppingList;

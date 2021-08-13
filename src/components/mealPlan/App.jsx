@@ -1,16 +1,19 @@
-import React from "react"
+import React, { useState } from "react"
 import ListFoodGroups from "./listFoodGroups"
 import Foods from "./Foods"
 import RenderMealPlan from './renderMealPlan'
 import week from './week'
 import dailyMeals from './dailyMeals'
-import ShoppingList from './shoppingList'
-
+import Header from "../header"
+import ShoppingList from "./shoppingList"
 
 const App = ()=>{
+
     const date = new Date();
     const today= date.getDay() 
+
     const mealTracker = {}
+
     const generateMealTracker =()=>{
         groupList.forEach(key=>{
             mealTracker.[key] = {}
@@ -18,14 +21,22 @@ const App = ()=>{
             mealTracker.[key].meal=0
             mealTracker.[key].counter=0
         })
+        mealTracker.shopping=[]
     }
-    const shoppingList={}
-    const shopList = Object.keys(shoppingList)
+
+
+    const addToShoppingList=item=>{
+        if (!mealTracker.[item]){mealTracker.[item]=0}
+        mealTracker.[item]++
+
+
+    }
 
     const groupList = Object.keys(Foods) //Food Keys array
         
     // create a meal plan 
     const addToMealPlan = (item, group)=>{
+
         if(mealTracker.[group].counter >=21){return}
         mealTracker.[group].counter++
 
@@ -43,52 +54,57 @@ const App = ()=>{
                 mealTracker.[group].day=0
             }
         } 
-        if(!shoppingList.[item]){
-            shoppingList.[item]=0
-        } 
+        if(!mealTracker.shopping.includes(item)){
+            mealTracker.shopping.push(item)
+        }
 
-        shoppingList.[item]++
-        document.getElementById("shopping"+item).innerHTML = shoppingList.[item]+' ' +item
+        let p = document.createElement("p")
+
+        p.innerHTML=item+" " 
+        document.getElementById("shopping").append(p.innerHTML)
+        console.log(p)
     }
 
 
+
     generateMealTracker()
+
     return (
     <div>
+
+        <Header />
+
         <div className = 'main'>
-        <h1>Food List</h1>
-        {groupList.map(group=>{
-            return <div 
-            key = {group+"sList"}>
-                <h2 key = {group+"h1"}>{group}</h2>
-                <ListFoodGroups 
-                key = {group}
-                group = {group}
-                list = {Foods.[group]}
-                addToMealPlan = {addToMealPlan}
-                />
-            </div>
-            })}
+
+            <h1>Food List</h1>
+            <ListFoodGroups 
+            addToMealPlan = {addToMealPlan}
+            list = {Foods}
+            mealTracker = {mealTracker}
+            
+
+            />
+
         </div>
         
         <div className = "mealPlan">
+
             <h1>Meal Plan</h1>
             <RenderMealPlan 
             groupList = {groupList}
             day = {today}
             />
+
         </div>
         
-        <div>
-            <h1>Shopping List</h1>
-            {groupList.map(group=>{
-                return(
-                    <ShoppingList 
-                    key = {"shoplits"+group}
-                    list = {Foods.[group]} //Foods does not update
-                    />
-                )
-            })}
+        <div className = "shopping" id = "shopping">
+
+            <h1>ShooppingList</h1>
+
+            <ShoppingList 
+            list =  {mealTracker.shopping}
+            />
+        
                     
         </div>
 

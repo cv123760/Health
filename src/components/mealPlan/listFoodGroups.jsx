@@ -1,56 +1,27 @@
-import React, {useState}   from "react"
+import React from "react"
+import ListItems from "./listItems"
 
 
 
 const ListFoodGroups = (props)=>{
-   const [foodGroup, updatefoodGroup] = useState(props.list)
+   let keyList = Object.keys(props.list)
 
-   const addToFoodGroup = item=>{
-      if (item === ""){return}
-      updatefoodGroup(prevValue=>{
-         return [...prevValue, item]
-         })
-   }
-   
-
-   return ( 
+   return (
       <div>
-            {foodGroup.map(item=>{
-            return <button 
-            
-            key = {item}
-            onClick = {event=>{
-               event.preventDefault()
-               props.addToMealPlan(item,props.group)}
-               }
-            >{item}</button>
-         })}
-            <form>
-               <input 
-               type="text" 
-               id = {"input"+ props.group}
-               placeholder = "Add new Item"
-               />
-
-               <button 
-                  onClick={event=>{
-                     event.preventDefault()
-                     let food = document.getElementById("input"+ props.group).value
-                     addToFoodGroup(food, props.group)
-                     document.getElementById("input"+ props.group).value = ""
-                  }}
-               >+</button>
-            </form>
-            
-            
-         
-
-
+      {keyList.map(group=>{
+         return(
+         <div key = {"div"+group}>
+         <h2 key= {"h2"+group}>{group}</h2>
+         <ListItems 
+         list = {props.list}
+         group = {group}
+         addToMealPlan = {props.addToMealPlan} 
+         addToFoods = {props.addToFoods}
+         />
+         </div>
+         )
+      })}
       </div>
-      
    )
-   
-   
-      
 }
 export default ListFoodGroups

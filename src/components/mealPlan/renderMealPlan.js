@@ -1,6 +1,6 @@
 import React from 'react'
 import week from './week'
-import Meals from './dailyMeals'
+import Meal from './meal'
 
 const RenderMealPlan=props=>{
     let dayNum = props.day
@@ -19,24 +19,12 @@ const RenderMealPlan=props=>{
                 className = "day"
                 >
                     <h2 key= {week[dayNum]}>{week[dayNum]}</h2>
-                    {Meals.map(meal=>{
-                        return (
-                            <div 
-                            key = {week[dayNum]+meal}
-                            className = "meal"
-                            >
-                                <h3>{meal}</h3>
-                                {props.groupList.map(category=>{
-                                    return<p 
-                                    key = {week[dayNum]+meal+category} 
-                                    id = {week[dayNum]+meal+category}
-                                    ></p>
-                                })}
-                            
-                            </div>
-                        )
+                    <Meal 
+                    groupList = {props.groupList}
+                    day = {week[dayNum]}
+                    />
                            
-                    })}
+                
                     {nextDay()}
                 </div>
             )
