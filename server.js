@@ -185,4 +185,4 @@ app.post("/login", (req,res)=>{
 });
 
 
-app.listen(process.env.PORT|| "3001"), ()=>{console.log("server running on port", port)}
+app.listen(process.env.PORT|| "3001")
