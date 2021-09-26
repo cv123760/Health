@@ -187,4 +187,4 @@ app.post("/login", (req,res)=>{
 
 const port = "3001"
 
-app.listen(port || process.env.PORT), ()=>{console.log("server running on port", port)})
+app.listen(process.env.PORT), ()=>{console.log("server running on port", port)})
