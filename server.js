@@ -179,11 +179,10 @@ app.post("/login", (req,res)=>{
             passport.authenticate("local")(req,res, ()=>{
                 res.redirect("/")
                 })
-                console.log("authenticated", req.isAuthenticated())
             }
     });
 
 });
 
 
-app.listen(process.env.PORT), ()=>{console.log("server running on port", port)}
+app.listen(process.env.PORT|| "3001"), ()=>{console.log("server running on port", port)}
