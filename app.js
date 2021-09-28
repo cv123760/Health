@@ -9,7 +9,6 @@ const GoogleStrategy = require("passport-google-oauth20").Strategy;
 const findOrCreate = require("mongoose-findorcreate")
 
 const app = express();
-let port = 5000;
 
 
 app.use(express.static(__dirname+"/public"))
@@ -210,7 +209,7 @@ app.post("/login", (req,res)=>{
     });
 
 });
-
+let port = process.env.PORT;
 if (port == null || port == "") {
   port = 8000;
 }
