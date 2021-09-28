@@ -1,0 +1,211 @@
+.temp{color:black}
+
+button{
+    border:none;
+}
+
+button:hover{
+   background-color: #84142D
+}
+
+/* *** header *** */
+.box{
+    background-color: #54123B;
+    border-radius: 1rem;
+    padding: 1rem;
+    margin-bottom: .5rem;
+}
+
+header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+header a{
+    color: white;
+    text-decoration: none;
+}
+
+nav a:hover{
+    background-color: #C02739;
+}
+
+nav{
+    min-width: 25%;
+    display: flex;
+    justify-content: space-between;
+}
+
+nav a{
+    background-color: #84142D;
+    padding:.5rem;
+    border-radius: .5rem;
+}
+
+/* *** Login *** */
+.loginContainer{
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    width: 100%;
+    background-image: url(images/snack.jpg);
+}
+
+.login{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    margin:0 auto;
+    padding: 2rem 4rem;
+}
+
+.OAuth {
+    text-decoration: none;
+    color:white;
+    padding: 1rem;
+    margin: 1rem;
+    font-size: 1.1rem;
+    border-radius: 1rem;
+
+}
+
+.googleOAuth{
+    background-color: #ea4335;
+}
+
+.facebookOAuth{
+    background-color: #3b5998;
+}
+
+.appleOAuth{
+    background-color: #1d1d1f;
+}
+
+/* *** Meal Plan *** */
+
+.body{
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+/* ** Food Groups ** */
+.foodsList{
+    width: 43%;
+}
+
+h1{
+    background-color: #54123B;
+    color: white;
+    width: fit-content;
+    border-radius: 1rem;
+    padding: .5rem 1rem;
+    margin: 0;
+    margin-bottom: .5rem;
+}
+
+h2{
+    color:white;
+}
+
+p{
+    color: white;
+}
+
+.foodGroup{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.item{
+    width: 30%;
+}
+
+.foodItem{
+    background-color: #C02739;
+    color:white;
+    border-radius: .5rem;
+    padding: .5rem;
+    margin: .5rem 0;
+    width: 100%;
+    font-size: 1rem;
+}
+
+.done{
+    background-color: #29C7AC;
+    color:white;
+    border-radius: .5rem;
+    padding: .5rem;
+    margin: .5rem 0;
+}
+
+.edit{
+    background-color: #C02739;
+    color:white;
+    border-radius: .5rem;
+    padding: .5rem;
+    margin: .5rem 0;
+}
+
+.editFoodGroup{
+    margin: .1rem 0;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    align-items: center;
+
+}
+
+input{
+    background-color: white;
+    height: 1.3rem;
+    max-width: 90%;
+}
+
+::placeholder{
+    background-color: white;
+    color: #54123B;
+    margin-bottom: .5rem;
+}
+
+.serving{
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.serving p{
+    margin: 0 .2rem;
+}
+
+/* ** Days ** */
+
+.mealPlan{
+    max-height: 100vh;
+    width: 56%;
+}
+
+h3{
+    color:white;
+    text-decoration: underline;
+    margin: 0;
+}
+
+.day{
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+}
+
+.meal{
+    background-color: #84142D;
+    border-radius: .5rem;
+    margin: .5rem 0;
+    padding: .5rem;
+    text-align: center;
+    width: 28%;
+    height: 100%;
+}
+

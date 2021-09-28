@@ -9,6 +9,8 @@ const GoogleStrategy = require("passport-google-oauth20").Strategy;
 const findOrCreate = require("mongoose-findorcreate")
 
 const app = express();
+let port = 5000;
+
 
 app.use(express.static(__dirname+"/public"))
 app.use(bodyParser.urlencoded({ extended: true }))
@@ -22,26 +24,15 @@ app.use(session({
 app.use(passport.initialize());
 app.use(passport.session());
 
-passport.use(new GoogleStrategy({
-    clientID: process.env.GOOGLE_CLIENT_ID,
-    clientSecret: process.env.GOOGLE_CLIENT_SECRET,
-    callbackURL: "http://www.example.com/auth/google/callback",
-    userProfileURL: "https://www.googleapis.com/oauth2/v3/userinfo"
-  },
-  function(accessToken, refreshToken, profile, cb) {
-    User.findOrCreate({ googleId: profile.id }, function (err, user) {
-      return cb(err, user);
-    });
-  }
-));
-
 
 mongoose.connect("mongodb+srv://"+process.env.MONGO_USER+":"+process.env.MONGO_PASSWORD+"@cluster0.v19qs.mongodb.net/users", { useNewUrlParser: true  });
 
 const userSchema = new mongoose.Schema ({ 
     username: String,
     password: String, 
-    googleID: String
+    googleId: String,
+    email: String,
+    lists: String
 });
 
 userSchema.plugin(passportLocalMongoose);
@@ -64,7 +55,7 @@ passport.serializeUser(function(user, done) {
 passport.use(new GoogleStrategy({
     clientID: process.env.GOOGLE_CLIENT_ID,
     clientSecret: process.env.GOOGLE_CLIENT_SECRET,
-    callbackURL: "http://localhost:3001/auth/google/health",
+    callbackURL: "http://localhost:5000/auth/google/health",
     userProfileURL: "https://www.googleapis.com/oauth2/v3/userinfo"
   },
   function(accessToken, refreshToken, profile, cb) {
@@ -79,7 +70,7 @@ passport.use(new GoogleStrategy({
 
 app.get("/", (req, res)=>{
     if (req.isAuthenticated()){
-        res.sendFile(__dirname+"/public/home.html")
+        res.sendFile(__dirname+"/public/mealplan/mealplan.html")
     }else{
         res.redirect("/login")
     }
@@ -93,9 +84,8 @@ app.get("/auth/google",
 app.get("/auth/google/health", 
     passport.authenticate("google", { failureRedirect: "/login" }),
     function(req, res) {
-      // Successful authentication, redirect home.
-
-      res.redirect("/");
+        // Successful authentication, redirect home.
+        res.redirect("/");
     });
     
 app.get("/login", (req,res)=>{
@@ -108,8 +98,7 @@ app.get("/register", (req,res)=>{
 
 app.get("/mealplan", (req,res)=>{
     if (req.isAuthenticated()){
-        console.log("authenticated user")
-        res.sendFile(__dirname+"/public/mealplan/mealplan.html")
+        res.sendFile(__dirname+"/public/mealplan/mealplan.html", {list: foundList})
     }else{
         res.redirect("/login")
     } 
@@ -117,7 +106,6 @@ app.get("/mealplan", (req,res)=>{
 
 app.get("/strength", (req,res)=>{
     if (req.isAuthenticated()){
-        console.log("authenticated user")
         res.sendFile(__dirname+"/public/underConstruction.html")
     }else{
         res.redirect("/login")
@@ -126,7 +114,6 @@ app.get("/strength", (req,res)=>{
 
 app.get("/cardio", (req,res)=>{
     if (req.isAuthenticated()){
-        console.log("authenticated user")
         res.sendFile(__dirname+"/public/underConstruction.html")
     }else{
         res.redirect("/login")
@@ -134,36 +121,76 @@ app.get("/cardio", (req,res)=>{
 
 });
 
+app.get("/getFoods", (req,res)=>{
+    const Foods = {
+        Protein:[
+            '1% Lean Ground Turkey',
+            'Chicken Breast',
+            'Egg Whites',
+            'Lean Beef', 
+            'Turkey Breasts',
+            'White Fish'
+        ],
+    
+        Carb:[
+            'Acai Berries',
+            'Black Berries',
+            'Black Rice',
+            'Blue Berries',
+            'Brown Rice',
+            'Cous Cous',
+            'Mango',
+            'Oatmeal **',
+            'Pineapple',
+            'Quinoa',
+            'Red Berries',
+            'Starfruit',
+            'Sweet Potato'
+        ],
+        Veggie:[
+            'Asparragus',
+            'Broccoli',
+            'Brussel Sprouts',
+            'Cucumber',
+            'Kale',
+            'Spinach',
+            'Spring Mix'
+        ]
+    }
+    console.log("requested")
+    res.send(JSON.stringify(Foods))
+})
+
 app.get("/logout", (req,res)=>{
     req.logout();
-    console.log("loged out")
     res.redirect("/")
 })
 
 
-
 // ----post routes----
-app.post("/foods", (req,res)=>{
-    console.log(req)
-});
+app.post("/getFoods", (req,res)=>{
+    // save list to a constant
+    const list = req.body.Foods
 
+    // find user by id
+    User.findById(req.user.id, (err, foundUser)=>{
+        console.log("this is userID", req.user.id)
 
-app.post("/register", (req, res)=>{
+        if (err) { 
+            console.log(err)
+        } else {
+            if (foundUser) {
+                foundUser.lists = list // remenber to add lists key to User schema
 
-    console.log(req.body.username)
-
-    User.register({username: req.body.username}, req.body.password, (err, user)=>{
-        if(err){
-            console.log(err);
-            res.redirect("/register")
-        }else{
-            passport.authenticate("local")(req,res, ()=>{
-            res.redirect("/")
-            })
+                foundUser.save()
+                res.redirect("mealPlan")
+            }
         }
-    })
+    });
 
+    
 });
+
 
 app.post("/login", (req,res)=>{
 
@@ -184,8 +211,8 @@ app.post("/login", (req,res)=>{
 
 });
 
-let port = process.env.PORT;
 if (port == null || port == "") {
-  port = "3001";
+  port = 8000;
 }
+
 app.listen(port);
