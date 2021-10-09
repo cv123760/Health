@@ -105,7 +105,7 @@ app.get("/register", (req,res)=>{
     res.sendFile(__dirname+"/public/register.html")
 } );
 
-app.get("/mealplan", (req,res)=>{
+app.get("/meal-plan", (req,res)=>{
     if (req.isAuthenticated()){
         res.sendFile(__dirname+"/public/meal-plan/meal-plan.html")
     }else{
@@ -176,7 +176,7 @@ app.post("/getFoods", (req,res)=>{
                 foundUser.lists = list // remenber to add lists key to User schema
 
                 foundUser.save()
-                res.redirect("mealPlan")
+                res.redirect("meal-plan")
             }
         }
     });
@@ -189,7 +189,7 @@ app.post("/login", (req,res)=>{
 
     const user = new User({
         username: req.body.username,
-        password: req.body.password
+        password: req.body.password, 
     });
 
     req.login(user, err=>{
