@@ -119,11 +119,8 @@ p{
     justify-content: space-between;
 }
 
-.item{
-    width: 30%;
-}
 
-.foodItem{
+.item{
     background-color: #C02739;
     color:white;
     border-radius: .5rem;
@@ -131,6 +128,9 @@ p{
     margin: .5rem 0;
     width: 100%;
     font-size: 1rem;
+}
+.itemDiv{
+    width: 30%;
 }
 
 .done{
@@ -142,11 +142,16 @@ p{
 }
 
 .edit{
-    background-color: #C02739;
+    background-color: #84142D;
     color:white;
     border-radius: .5rem;
     padding: .5rem;
-    margin: .5rem 0;
+    margin: .5rem .5rem;
+    border: solid 1px white;
+}
+
+.edit:hover{
+    background-color: #C02739;
 }
 
 .editFoodGroup{
@@ -155,6 +160,7 @@ p{
     justify-content: space-between;
     flex-wrap: wrap;
     align-items: center;
+    width: 100%;
 
 }
 
@@ -204,8 +210,37 @@ h3{
     border-radius: .5rem;
     margin: .5rem 0;
     padding: .5rem;
-    text-align: center;
     width: 28%;
     height: 100%;
 }
+
+.day input, ::placeholder {
+    background-color: #84142D;
+    color: white;
+    border: none;
+    font-size: 1rem;
+    padding: .25rem 0;
+}
+
+/* Shopping list  */
+
+input[type=range]::-webkit-slider-runnable-track{
+    background-color: #84142D;
+    border-radius: .5rem;
+
+}
+
+input[type=range]::-webkit-slider-thumb{
+    margin: 0;
+    width: 100%;
+    background:#29C7AC;
+}
+
+
+.slider{
+    margin-left: 1rem;
+}
+
+
+
 

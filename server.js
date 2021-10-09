@@ -6,7 +6,7 @@ const session = require("express-session")
 const passport = require("passport")
 const passportLocalMongoose = require("passport-local-mongoose")
 const GoogleStrategy = require("passport-google-oauth20").Strategy;
-const findOrCreate = require("mongoose-findorcreate")
+const findOrCreate = require("mongoose-findorcreate");
 
 const app = express();
 
@@ -54,7 +54,7 @@ passport.serializeUser(function(user, done) {
 passport.use(new GoogleStrategy({
     clientID: process.env.GOOGLE_CLIENT_ID,
     clientSecret: process.env.GOOGLE_CLIENT_SECRET,
-    callbackURL: "https://floating-hamlet-55199.herokuapp.com/auth/google/health",
+    callbackURL: "http://localhost:5000/auth/google/health",
     userProfileURL: "https://www.googleapis.com/oauth2/v3/userinfo"
   },
   function(accessToken, refreshToken, profile, cb) {
@@ -69,10 +69,20 @@ passport.use(new GoogleStrategy({
 
 app.get("/", (req, res)=>{
     if (req.isAuthenticated()){
-        res.sendFile(__dirname+"/public/mealplan/mealplan.html")
+        User.findById(req.user.id, (err, foundUser)=>{
+
+            if (err){
+                console.log(err);
+            } else {
+                const Foods = foundUser.lists
+                res.sendFile(__dirname+"/public/home.html")
+            };
+        });
     }else{
         res.redirect("/login")
     }
+
+
 
 })
 
@@ -97,7 +107,7 @@ app.get("/register", (req,res)=>{
 
 app.get("/mealplan", (req,res)=>{
     if (req.isAuthenticated()){
-        res.sendFile(__dirname+"/public/mealplan/mealplan.html", {list: foundList})
+        res.sendFile(__dirname+"/public/mealplan/mealplan.html")
     }else{
         res.redirect("/login")
     } 
@@ -121,44 +131,21 @@ app.get("/cardio", (req,res)=>{
 });
 
 app.get("/getFoods", (req,res)=>{
-    const Foods = {
-        Protein:[
-            '1% Lean Ground Turkey',
-            'Chicken Breast',
-            'Egg Whites',
-            'Lean Beef', 
-            'Turkey Breasts',
-            'White Fish'
-        ],
-    
-        Carb:[
-            'Acai Berries',
-            'Black Berries',
-            'Black Rice',
-            'Blue Berries',
-            'Brown Rice',
-            'Cous Cous',
-            'Mango',
-            'Oatmeal **',
-            'Pineapple',
-            'Quinoa',
-            'Red Berries',
-            'Starfruit',
-            'Sweet Potato'
-        ],
-        Veggie:[
-            'Asparragus',
-            'Broccoli',
-            'Brussel Sprouts',
-            'Cucumber',
-            'Kale',
-            'Spinach',
-            'Spring Mix'
-        ]
-    }
-    console.log("requested")
-    res.send(JSON.stringify(Foods))
-})
+
+
+    User.findById("6151fa2111c783cb5f1ca0e8", (err, foundUser)=>{
+        if (err){
+            console.log(err);
+        } else {
+            const lists = foundUser.lists   
+            console.log("this is lists", lists)
+            res.send(lists)
+        };
+    });
+});
+
+
+
 
 app.get("/logout", (req,res)=>{
     req.logout();
@@ -166,14 +153,25 @@ app.get("/logout", (req,res)=>{
 })
 
 
+
+
+
+
+
+
+
 // ----post routes----
 app.post("/getFoods", (req,res)=>{
     // save list to a constant
-    const list = req.body.Foods
+    const list = req.body.data
+    console.log (list)
 
     // find user by id
-    User.findById(req.user.id, (err, foundUser)=>{
-        console.log("this is userID", req.user.id)
+
+    // User.findById(req.user.id, (err, foundUser)=>{
+    //     console.log("this is userID", req.user.id)
+    User.findById("6151fa2111c783cb5f1ca0e8", (err, foundUser)=>{
+        console.log("this is userID", "6151fa2111c783cb5f1ca0e8")
 
         if (err) { 
             console.log(err)
@@ -211,7 +209,7 @@ app.post("/login", (req,res)=>{
 });
 let port = process.env.PORT;
 if (port == null || port == "") {
-  port = 8000;
+  port = 5000;
 }
 
 app.listen(port);
