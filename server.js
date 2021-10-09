@@ -10,6 +10,8 @@ const findOrCreate = require("mongoose-findorcreate");
 
 const app = express();
 
+const url = "http://localhost:5000"
+
 
 app.use(express.static(__dirname+"/public"))
 app.use(bodyParser.urlencoded({ extended: true }))
@@ -27,10 +29,7 @@ app.use(passport.session());
 mongoose.connect("mongodb+srv://"+process.env.MONGO_USER+":"+process.env.MONGO_PASSWORD+"@cluster0.v19qs.mongodb.net/users", { useNewUrlParser: true  });
 
 const userSchema = new mongoose.Schema ({ 
-    username: String,
-    password: String, 
     googleId: String,
-    email: String,
     lists: String
 });
 
@@ -54,7 +53,7 @@ passport.serializeUser(function(user, done) {
 passport.use(new GoogleStrategy({
     clientID: process.env.GOOGLE_CLIENT_ID,
     clientSecret: process.env.GOOGLE_CLIENT_SECRET,
-    callbackURL: "https://floating-hamlet-55199.herokuapp.com/auth/google/health",
+    callbackURL: "https://"+url+"/auth/google/health",
     userProfileURL: "https://www.googleapis.com/oauth2/v3/userinfo"
   },
   function(accessToken, refreshToken, profile, cb) {
@@ -133,6 +132,7 @@ app.get("/cardio", (req,res)=>{
 app.get("/getFoods", (req,res)=>{
     let list = {}
 
+    // set list to guest list
     User.findById("6161cfed648a24edd23399a1", (err, foundUser)=>{
         if (err){
             console.log(err);
@@ -146,6 +146,7 @@ app.get("/getFoods", (req,res)=>{
             console.log(err);
         } else {
 
+            // if user has save data set list to user list
             if (foundUser.lists){lists = foundUser.lists}
             res.send(lists)
         };
@@ -195,6 +196,8 @@ app.post("/getFoods", (req,res)=>{
 
 
 app.post("/login", (req,res)=>{
+    console.log (req.body.user)
+
 
     const user = new User({
         username: req.body.username,
@@ -212,6 +215,8 @@ app.post("/login", (req,res)=>{
     });
 
 });
+
+
 let port = process.env.PORT;
 if (port == null || port == "") {
   port = 5000;
