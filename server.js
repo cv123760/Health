@@ -10,7 +10,7 @@ const findOrCreate = require("mongoose-findorcreate");
 
 const app = express();
 
-const url = "floating-hamlet-55199.herokuapp.com"
+const url = "localhost:5000"
 
 
 app.use(express.static(__dirname+"/public"))
@@ -57,7 +57,8 @@ passport.use(new GoogleStrategy({
     userProfileURL: "https://www.googleapis.com/oauth2/v3/userinfo"
   },
   function(accessToken, refreshToken, profile, cb) {
-    User.findOrCreate({ googleId: profile.id }, function (err, user) {
+    User.findOrCreate({ googleId: profile.id, username: profile.emails[0].value
+    }, function (err, user) {
       return cb(err, user);
     });
   }
