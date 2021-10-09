@@ -139,7 +139,7 @@ app.get("/getFoods", (req,res)=>{
     let list = {}
 
     // set list to guest list
-    User.findById("6161cfed648a24edd23399a1", (err, foundUser)=>{
+    User.findById("616219f4c6c74cf009aafecc", (err, foundUser)=>{
         if (err){
             console.log(err);
         } else {
