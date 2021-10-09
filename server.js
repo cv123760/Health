@@ -107,7 +107,7 @@ app.get("/register", (req,res)=>{
 
 app.get("/mealplan", (req,res)=>{
     if (req.isAuthenticated()){
-        res.sendFile(__dirname+"/public/mealplan/mealplan.html")
+        res.sendFile(__dirname+"/public/meal-plan/meal-plan.html")
     }else{
         res.redirect("/login")
     } 
@@ -133,7 +133,7 @@ app.get("/cardio", (req,res)=>{
 app.get("/getFoods", (req,res)=>{
 
 
-    User.findById("6151fa2111c783cb5f1ca0e8", (err, foundUser)=>{
+    User.findById(req.user.id, (err, foundUser)=>{
         if (err){
             console.log(err);
         } else {
@@ -168,12 +168,8 @@ app.post("/getFoods", (req,res)=>{
 
     // find user by id
 
-    // User.findById(req.user.id, (err, foundUser)=>{
-    //     console.log("this is userID", req.user.id)
-    User.findById("6151fa2111c783cb5f1ca0e8", (err, foundUser)=>{
-        console.log("this is userID", "6151fa2111c783cb5f1ca0e8")
-
-        if (err) { 
+    User.findById(req.user.id, (err, foundUser)=>{
+         if (err) { 
             console.log(err)
         } else {
             if (foundUser) {
