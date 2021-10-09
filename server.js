@@ -10,7 +10,8 @@ const findOrCreate = require("mongoose-findorcreate");
 
 const app = express();
 
-const url = "localhost:5000"
+const url = "floating-hamlet-55199.herokuapp.com"
+// const url = "localhost:5000"
 
 
 app.use(express.static(__dirname+"/public"))
