@@ -75,7 +75,7 @@ app.get("/", (req, res)=>{
                 console.log(err);
             } else {
                 const Foods = foundUser.lists
-                res.sendFile(__dirname+"/public/home.html")
+                res.redirect("meal-plan")
             };
         });
     }else{
