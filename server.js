@@ -131,14 +131,22 @@ app.get("/cardio", (req,res)=>{
 });
 
 app.get("/getFoods", (req,res)=>{
+    let list = {}
 
+    User.findById("6161cfed648a24edd23399a1", (err, foundUser)=>{
+        if (err){
+            console.log(err);
+        } else {
+            lists = foundUser.lists
+        };
+    });
 
     User.findById(req.user.id, (err, foundUser)=>{
         if (err){
             console.log(err);
         } else {
-            const lists = foundUser.lists   
-            console.log("this is lists", lists)
+
+            if (foundUser.lists){lists = foundUser.lists}
             res.send(lists)
         };
     });
@@ -163,6 +171,7 @@ app.get("/logout", (req,res)=>{
 // ----post routes----
 app.post("/getFoods", (req,res)=>{
     // save list to a constant
+
     const list = req.body.data
     console.log (list)
 
