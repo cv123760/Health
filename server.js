@@ -29,6 +29,7 @@ app.use(passport.session());
 mongoose.connect("mongodb+srv://"+process.env.MONGO_USER+":"+process.env.MONGO_PASSWORD+"@cluster0.v19qs.mongodb.net/users", { useNewUrlParser: true  });
 
 const userSchema = new mongoose.Schema ({ 
+    username: String, 
     googleId: String,
     lists: String
 });
