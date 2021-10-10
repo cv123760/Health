@@ -11,6 +11,7 @@ const findOrCreate = require("mongoose-findorcreate");
 const app = express();
 
 const url = "floating-hamlet-55199.herokuapp.com"
+
 // const url = "localhost:5000"
 
 
@@ -32,6 +33,8 @@ mongoose.connect("mongodb+srv://"+process.env.MONGO_USER+":"+process.env.MONGO_P
 const userSchema = new mongoose.Schema ({ 
     username: String, 
     googleId: String,
+    name: String, 
+    photos: String,
     lists: String
 });
 
@@ -59,10 +62,11 @@ passport.use(new GoogleStrategy({
     userProfileURL: "https://www.googleapis.com/oauth2/v3/userinfo"
   },
   function(accessToken, refreshToken, profile, cb) {
-      console.log(profile)
     User.findOrCreate({ 
         googleId: profile.id, 
-        username: profile.id
+        username: profile.id,
+        name: profile.name.givenName,
+        photos: profile.photos[0].value
     }, function (err, user) {
       return cb(err, user);
     });
@@ -180,7 +184,6 @@ app.post("/getFoods", (req,res)=>{
     // save list to a constant
 
     const list = req.body.data
-    console.log (list)
 
     // find user by id
 
@@ -202,7 +205,6 @@ app.post("/getFoods", (req,res)=>{
 
 
 app.post("/login", (req,res)=>{
-    console.log (req.body.user)
 
 
     const user = new User({
