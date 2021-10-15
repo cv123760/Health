@@ -53,7 +53,7 @@ header img{
     display: flex;
     align-items: center;
     width: 100%;
-    background-image: url(/public/images/snack.jpg);
+    background-image: url(images/snack.jpg);
 }
 
 .login{
@@ -193,7 +193,7 @@ input{
 /* ** Days ** */
 
 .mealPlan{
-    height: 100vh;
+    max-height: 100vh;
     width: 56%;
     overflow: scroll;
 }
@@ -230,9 +230,8 @@ h3{
 /* Shopping list  */
 .shoopingList{
     background-color:#54123B;
-    width: 41%;
+    width: 100%;
     border-radius: 1rem;
-    padding: 1rem;
 }
 
 input[type=range]::-webkit-slider-runnable-track{
