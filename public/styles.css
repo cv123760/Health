@@ -53,7 +53,7 @@ header img{
     display: flex;
     align-items: center;
     width: 100%;
-    background-image: url(images/snack.jpg);
+    background-image: url(/public/images/snack.jpg);
 }
 
 .login{
