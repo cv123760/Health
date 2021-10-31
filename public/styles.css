@@ -1,34 +1,35 @@
 .temp{color:black}
 
 button{
-    border:none;
+    border:1px solid #54123B;
 }
 
 button:hover{
-   background-color: #84142D
+   background-color: #84142D;
+   color: white
 }
 
 /* *** header *** */
-.box{
-    background-color: #54123B;
-    border-radius: 1rem;
-    padding: 1rem;
-    margin-bottom: .5rem;
-}
+
 
 header{
     display: flex;
     justify-content: space-between;
     align-items: center;
+    background-color: #84142D;
+    padding: 1rem;
+    margin-bottom:1rem;
 }
 
 header a{
-    color: white;
+    color: white;    
     text-decoration: none;
+      
 }
 
 nav a:hover{
-    background-color: #C02739;
+    text-decoration: underline;
+
 }
 
 nav{
@@ -38,9 +39,7 @@ nav{
 }
 
 nav a{
-    background-color: #84142D;
     padding:.5rem;
-    border-radius: .5rem;
 }
 
 header img{
@@ -90,52 +89,58 @@ header img{
 
 .body{
     display: flex;
-    justify-content: space-between;
+    width: fit-content;
+    margin: 0 auto;
     flex-wrap: wrap;
 }
 
 /* ** Food Groups ** */
-.foodsList{
-    width: 43%;
-}
+
 
 h1{
-    background-color: #54123B;
-    color: white;
+    color: blcak;
     width: fit-content;
     border-radius: 1rem;
-    padding: .5rem 1rem;
+    padding: 0;
     margin: 0;
     margin-bottom: .5rem;
 }
 
 h2{
-    color:white;
+    color:black;
+    margin: 0;
+    padding-bottom: 15px;
 }
 
-p{
-    color: white;
-}
+
 
 .foodGroup{
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
+    margin: 15px;
 }
 
+.lists{
+    display: flex;
+    padding: 1px;
+    margin-bottom: 15px;
+    border-bottom: 1px solid #29C7AC;
+}
+
+.singleList{
+    max-height: 400px;
+    overflow-y: scroll;
+}
 
 .item{
-    background-color: #C02739;
-    color:white;
+    border: 1px solid #C02739;
+    background-color: white;
     border-radius: .5rem;
-    padding: .5rem;
-    margin: .5rem 0;
-    width: 100%;
+    width: 158.2px;
     font-size: 1rem;
+    margin: 0 15px 15px 0;
+    padding: 1rem;
 }
-.itemDiv{
-    width: 30%;
-}
+
+
 
 .done{
     background-color: #29C7AC;
@@ -171,7 +176,8 @@ p{
 input{
     background-color: white;
     height: 1.3rem;
-    max-width: 90%;
+    width: 158.2px;
+    word-wrap:normal;
 }
 
 ::placeholder{
@@ -193,64 +199,48 @@ input{
 /* ** Days ** */
 
 .mealPlan{
-    max-height: 100vh;
-    width: 56%;
-    overflow: scroll;
 }
 
 h3{
-    color:white;
     text-decoration: underline;
     margin: 0;
 }
 
 .day{
     display: flex;
-    justify-content: space-between;
     flex-direction: row;
+    border: 1px solid #84142D;
+    border-radius: 1rem;
+    padding: 1rem;
+    margin:.5rem;
+    flex-wrap: wrap;
+    max-width: 100%;
+    
 }
 
 .meal{
-    background-color: #84142D;
     border-radius: .5rem;
-    margin: .5rem 0;
-    padding: .5rem;
-    width: 28%;
+    margin: 0 15px 0 0 ;
+    width: 158.2px;
     height: 100%;
 }
 
-.day input, ::placeholder {
-    background-color: #84142D;
-    color: white;
-    border: none;
-    font-size: 1rem;
-    padding: .25rem 0;
+.mealPlan h2{
+    padding-bottom:5px;
+    margin:.5rem
 }
+
+
 
 /* Shopping list  */
 .shoopingList{
-    background-color:#54123B;
-    width: 100%;
     border-radius: 1rem;
+    margin-top: 15px
 }
 
-input[type=range]::-webkit-slider-runnable-track{
-    background-color: #84142D;
-    border-radius: .5rem;
-
+.shoopingListItem{
+    margin-right: 15px;
 }
-
-input[type=range]::-webkit-slider-thumb{
-    margin: 0;
-    width: 100%;
-    background:#29C7AC;
-}
-
-
-.slider{
-    margin-left: 1rem;
-}
-
 
 
 
