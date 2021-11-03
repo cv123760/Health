@@ -7,27 +7,27 @@
                 <g id="Layer_2-2">
                     <g id="Layer_2-2-2">
                         <g transform="matrix(0.707107,-0.707107,0.707107,0.707107,-5.52,22.93)">
-                            <ellipse cx="24.92" cy="18.13" rx="11.05" ry="2.45" style="fill:rgb(41,199,172);"/>
+                            <ellipse cx="24.92" cy="18.13" rx="11.05" ry="2.45" style="fill:rgb(255,255,43);"/>
                         </g>
                         <g transform="matrix(0.707107,-0.707107,0.707107,0.707107,-22.1,15.79)">
-                            <ellipse cx="8.01" cy="34.57" rx="11.05" ry="2.45" style="fill:rgb(41,199,172);"/>
+                            <ellipse cx="8.01" cy="34.57" rx="11.05" ry="2.45" style="fill:rgb(255,255,43);"/>
                         </g>
                         <g transform="matrix(0.627284,-0.778791,0.778791,0.627284,-15.02,33.52)">
-                            <ellipse cx="27.51" cy="32.46" rx="8.16" ry="2.45" style="fill:rgb(41,199,172);"/>
+                            <ellipse cx="27.51" cy="32.46" rx="8.16" ry="2.45" style="fill:rgb(255,255,43);"/>
                         </g>
                         <g transform="matrix(0.904008,-0.427516,0.427516,0.904008,-8.49,13.23)">
-                            <ellipse cx="25.21" cy="25.52" rx="7.63" ry="2.4" style="fill:rgb(41,199,172);"/>
+                            <ellipse cx="25.21" cy="25.52" rx="7.63" ry="2.4" style="fill:rgb(255,255,43);"/>
                         </g>
                         <g transform="matrix(0.434288,-0.900774,0.900774,0.434288,8.78,25.91)">
-                            <ellipse cx="25.02" cy="5.96" rx="1.7" ry="8.06" style="fill:rgb(41,199,172);"/>
+                            <ellipse cx="25.02" cy="5.96" rx="1.7" ry="8.06" style="fill:rgb(255,255,43);"/>
                         </g>
                         <g transform="matrix(0.707107,-0.707107,0.707107,0.707107,3.95,36.86)">
-                            <ellipse cx="46.47" cy="13.66" rx="7.93" ry="1.73" style="fill:rgb(41,199,172);"/>
+                            <ellipse cx="46.47" cy="13.66" rx="7.93" ry="1.73" style="fill:rgb(255,255,43);"/>
                         </g>
                         <g transform="matrix(0.627284,-0.778791,0.778791,0.627284,-2.83,14.2)">
-                            <ellipse cx="13.42" cy="10.06" rx="7.61" ry="1.8" style="fill:rgb(41,199,172);"/>
+                            <ellipse cx="13.42" cy="10.06" rx="7.61" ry="1.8" style="fill:rgb(255,255,43);"/>
                         </g>
-                        <ellipse cx="40.82" cy="5.03" rx="5.41" ry="5.03" style="fill:rgb(41,199,172);"/>
+                        <ellipse cx="40.82" cy="5.03" rx="5.41" ry="5.03" style="fill:rgb(255,255,43);"/>
                     </g>
                 </g>
             </g>
