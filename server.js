@@ -10,9 +10,9 @@ const findOrCreate = require("mongoose-findorcreate");
 
 const app = express();
 
-const url = "floating-hamlet-55199.herokuapp.com"
+const url = "https://floating-hamlet-55199.herokuapp.com/"
 
-// const url = "localhost:5000"
+// const url = "http://localhost:5000"
 
 
 app.use(express.static(__dirname+"/public"))
@@ -58,7 +58,7 @@ passport.serializeUser(function(user, done) {
 passport.use(new GoogleStrategy({
     clientID: process.env.GOOGLE_CLIENT_ID,
     clientSecret: process.env.GOOGLE_CLIENT_SECRET,
-    callbackURL: "https://"+url+"/auth/google/health",
+    callbackURL: url+"/auth/google/health",
     userProfileURL: "https://www.googleapis.com/oauth2/v3/userinfo"
   },
   function(accessToken, refreshToken, profile, cb) {

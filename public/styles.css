@@ -65,21 +65,7 @@ header a:hover{
     text-decoration: none;
     margin-right: 1rem;
 }
-.body{
-    display: flex;
-    max-width: 1024px;
-    margin: 0 auto;
-    justify-content: space-between;
-}
 
-.leftOrRightSide{
-    max-height: 100vh;
-    overflow-y: scroll;
-}
-
-.leftOrRightSide::-webkit-scrollbar{
-    display:none;
-}
 
 
 /* ____________html Elements_______________ */
@@ -103,19 +89,36 @@ button{
 }
 
 
+/* __________Meal Plan _______________ */
+.body{
+    display: flex;
+    max-width: 1024px;
+    margin: 0 auto;
+    justify-content: space-between;
+}
+
+.leftOrRightSide{
+    max-height: 100vh;
+    overflow-y: scroll;
+}
+
+.leftOrRightSide::-webkit-scrollbar{
+    display:none;
+}
+
 /* Foods List  */
 .lists{
     display: flex;
     padding: 1rem 1rem 0 o;
     flex-wrap: wrap;
-    justify-content: space-between;
 
 }
 
 .singleList{
     padding-top:1px;
-    background-color:#FFD3B4;
+    background-color: #A7D0FF;
     border-radius: 1rem;
+    margin-right: 1rem;
 }
 
 .singleList p{
@@ -146,7 +149,7 @@ button{
 /* Meal Plan */
 .day{
     padding:1px 1rem;
-    background-color:#98DDCA;
+    background-color:#A7FFD6;
     border-radius: 1rem;
     display: flex;
     flex-wrap: wrap;
@@ -157,6 +160,39 @@ button{
     margin-left:0;
     padding-left: 0;
 }
+
+/* Shopping List */
+
+.serving{
+    display: flex;
+    align-items: center;
+    padding-left: 1rem;
+}
+
+.shoppingList h2{
+    margin: .5rem 0 0 1rem;
+}
+
+.servingSize{
+    font-size: 12px;
+    margin: 0;
+    padding: 0;
+    margin-right:.5rem;
+}
+
+.editServing{
+    font-size: 1.5rem;
+    margin:0;
+    margin-right:.5rem;
+    padding:0;
+}
+
+.shoppingList .singleList{
+    background-color:#A7FCFF;
+}
+
+
+
 
 
 
