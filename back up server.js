@@ -7,14 +7,13 @@ const passport = require("passport")
 const passportLocalMongoose = require("passport-local-mongoose")
 const GoogleStrategy = require("passport-google-oauth20").Strategy;
 const findOrCreate = require("mongoose-findorcreate");
-const { restart } = require('nodemon');
 
 const app = express();
 
 const url = "https://floating-hamlet-55199.herokuapp.com"
 
-// const url = "http://localhost:3000"
- 
+// const url = "http://localhost:5000"
+
 
 app.use(express.static(__dirname+"/public"))
 app.use(bodyParser.urlencoded({ extended: true }))
@@ -91,10 +90,9 @@ app.get("/", (req, res)=>{
     }else{
         res.redirect("/login")
     }
-})
 
-app.get("/guest", (req, res)=>{
-    res.sendFile(__dirname+"/public/meal-plan/meal-plan.html")
+
+
 })
 
 app.get("/auth/google",
@@ -142,17 +140,22 @@ app.get("/cardio", (req,res)=>{
 });
 
 app.get("/getFoods", (req,res)=>{
-    
-    let user = "616219f4c6c74cf009aafecc"
-    console.log(user)
+    let list = {}
 
-    if (req.user.id){user = req.user.id}
     // set list to guest list
-
-    User.findById(user, (err, foundUser)=>{
+    User.findById("616219f4c6c74cf009aafecc", (err, foundUser)=>{
         if (err){
             console.log(err);
         } else {
+            lists = foundUser.lists
+        };
+    });
+
+    User.findById(req.user.id, (err, foundUser)=>{
+        if (err){
+            console.log(err);
+        } else {
+
             // if user has save data set list to user list
             if (foundUser.lists){lists = foundUser.lists}
             res.send(lists)
@@ -178,25 +181,26 @@ app.get("/logout", (req,res)=>{
 
 // ----post routes----
 app.post("/getFoods", (req,res)=>{
+    // save list to a constant
+
     const list = req.body.data
 
-    // save list to a constant
-    if (req.user){
+    // find user by id
 
-        User.findById(req.user.id, (err, foundUser)=>{
-            if (err) { 
-               console.log(err)
-           } else {
-               if (foundUser) {
-                   foundUser.lists = list // remenber to add lists key to User schema
-   
-                   foundUser.save()
-                   res.redirect("meal-plan")
-               }
-           }
-       });
-        console.log("valid user")
-    } else {res.sendFile(__dirname+"/public/pleaseLogIn.html")}
+    User.findById(req.user.id, (err, foundUser)=>{
+         if (err) { 
+            console.log(err)
+        } else {
+            if (foundUser) {
+                foundUser.lists = list // remenber to add lists key to User schema
+
+                foundUser.save()
+                res.redirect("meal-plan")
+            }
+        }
+    });
+
+    
 });
 
 
@@ -223,7 +227,7 @@ app.post("/login", (req,res)=>{
 
 let port = process.env.PORT;
 if (port == null || port == "") {
-  port = 3000;
+  port = 5000;
 }
 
 app.listen(port);

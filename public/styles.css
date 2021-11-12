@@ -18,16 +18,18 @@
 
 .OAuth {
     text-decoration: none;
-    color:white;
     padding: 1rem;
     margin: 1rem;
     font-size: 1.1rem;
     border-radius: 1rem;
+    align-items: center;
+    text-align: center;
 
 }
 
 .googleOAuth{
     background-color: #ea4335;
+    color:white;
 }
 
 .facebookOAuth{
@@ -36,6 +38,11 @@
 
 .appleOAuth{
     background-color: #1d1d1f;
+}
+
+.guest{
+    background-color: #A7D0FF;
+
 }
 
 /* ____Header______  */
@@ -69,7 +76,7 @@ header a:hover{
 
 
 /* ____________html Elements_______________ */
-p{
+.body p{
     padding: .25rem .5rem;
     margin: .25rem .5rem;
     max-width: 120px;
