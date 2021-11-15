@@ -11,7 +11,7 @@ const { restart } = require('nodemon');
 
 const app = express();
 
-const url = "https://getrippedapp.herokuapp.com"
+const url = "http://www.getripped.org"
 
 // const url = "http://localhost:3000"
  
