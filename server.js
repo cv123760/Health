@@ -11,7 +11,7 @@ const { restart } = require('nodemon');
 
 const app = express();
 
-const url = "https://floating-hamlet-55199.herokuapp.com"
+const url = "https://getrippedapp.herokuapp.com"
 
 // const url = "http://localhost:3000"
  
