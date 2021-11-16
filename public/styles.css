@@ -72,11 +72,25 @@ header a:hover{
     text-decoration: none;
     margin-right: 1rem;
 }
+.body{
+    display: flex;
+    max-width: 1024px;
+    margin: 0 auto;
+    justify-content: space-between;
+}
 
+.leftOrRightSide{
+    max-height: 100vh;
+    overflow-y: scroll;
+}
+
+.leftOrRightSide::-webkit-scrollbar{
+    display:none;
+}
 
 
 /* ____________html Elements_______________ */
-.body p{
+p{
     padding: .25rem .5rem;
     margin: .25rem .5rem;
     max-width: 120px;
@@ -95,23 +109,6 @@ button{
     border:none
 }
 
-
-/* __________Meal Plan _______________ */
-.body{
-    display: flex;
-    max-width: 1024px;
-    margin: 0 auto;
-    justify-content: space-between;
-}
-
-.leftOrRightSide{
-    max-height: 100vh;
-    overflow-y: scroll;
-}
-
-.leftOrRightSide::-webkit-scrollbar{
-    display:none;
-}
 
 /* Foods List  */
 .lists{
@@ -201,11 +198,4 @@ button{
 .shoppingListItem{
     margin:.5rem;
 }
-
-
-
-
-
-
-
 
