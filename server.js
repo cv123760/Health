@@ -11,9 +11,9 @@ const { restart } = require('nodemon');
 
 const app = express();
 
-// const url = "http://www.nurtureyourbody.net"
+const url = "http://www.nurtureyourbody.net"
 
-const url = "http://localhost:3000"
+// const url = "http://localhost:3000"
  
 
 app.use(express.static(__dirname+"/public"))
